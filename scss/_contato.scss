@@ -1,0 +1,24 @@
+.contato-mapa {
+    grid-column: 2;
+}
+
+.contato-dados {
+    grid-column: 3;
+}
+
+.contato-dados li {
+    font-family: $fonte-terciaria;
+    margin-bottom: 1rem; /* 16px de distância em cada item da lista */
+    font-size: 1.125em;
+
+    @include separador-2;
+}
+
+.contato-dados li a {
+    color: $cor-texto;
+
+    &:hover {
+        transition: ease-in .3s;
+        color: $cor-animais;
+    }
+}

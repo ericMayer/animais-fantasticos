@@ -1,0 +1,42 @@
+// variaveis
+
+$gap: 20px;
+$medium-large: 700px;
+
+
+// Grid
+
+@mixin grid-section {
+    grid-column: 2 / 4;
+
+    // width: 100%;
+
+    padding: 10px;
+
+    display: grid;
+
+    grid-template-columns: 100px 300px 1fr; /* a grid-section será separada em três colunas */
+
+    grid-gap: gap; /* espaço entre os grid-items */
+
+    /*margin-bottom: 4rem; /* margin bottom em relação aos pixels usados em 16 x 4 aproximadamente */
+}
+
+.grid-section {
+    @include grid-section;
+}
+
+
+/* Responsivo */
+
+
+// d = device
+// m = medium
+
+@mixin d($size) {
+    @if $size == m {
+        @media only screen and (max-width: $medium-large) {
+            @content;
+        }
+    }
+}

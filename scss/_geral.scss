@@ -1,0 +1,29 @@
+
+body {
+    color: $cor-texto;
+    background-color: $cor-fundo;
+    
+    display: grid; /* irá utilizar grid layout */
+
+    grid-template-columns: 40px 120px auto 40px; /* as duas colunas de 1fr será uma na esquerda e outra na direita, os 120px é para o texto ficar quebrado para o lado e o minmax de 300px a 800px é para o conteúdo */
+
+    @include d(m) {
+        grid-template-columns: 1fr; /* mudando para 1 coluna de 1fr no responsivo */
+    }
+}
+
+/* classes gerais que aparecem em mais de uma parte da página */
+
+.titulo {
+    font-family: $fonte-secundaria;
+
+    font-size: 4rem;
+    grid-column: 1 / 4;
+    font-weight: normal;
+
+    margin-bottom: 1rem;
+
+    @include d(m) {
+        font-size: 3rem;
+    }
+}

@@ -1,0 +1,21 @@
+.faq-lista {
+    grid-column: 2 / 4;
+}
+
+.faq-lista dt {
+    font-family: $fonte-principal;
+    font-weight: bold;
+
+    font-size: 1.5em;
+    margin-bottom: .5rem; /* 8px */
+
+    color: $cor-animais;
+
+    @include separador-2;
+}
+
+.faq-lista dd {
+    margin-left: 40px;
+    
+    @include texto;
+}

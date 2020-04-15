@@ -1,0 +1,274 @@
+@charset "UTF-8";
+/* Reset */
+body, h1, h2, ul, li, p, dd, dt, dl {
+  padding: 0px;
+  margin: 0px;
+}
+
+ul {
+  list-style: none;
+  /* tirando a bolinha padrão que veem do lado da lista */
+}
+
+a {
+  text-decoration: none;
+  /* tirando o sublinhado dos links */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+*, *::before, *::after {
+  /* será em todos os elementos do html, inclusive os before e after */
+  /* não soma os valores por exemplo da borda, padding, margem ao tamanho do total width ou heigth, por exemplo, width: 200px padding:20 será 200px o width, sem o box-sizing: seria 240px; */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  /* firefox, versões mais antigas */
+  -webkit-box-sizing: border-box;
+  /* chrome e safari versões mais antigas */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  /* tirando a opção que por padrão no chrome deixa a fonte suave */
+  -moz-font-smoothing: antialiased;
+  /* firefox */
+}
+
+.grid-section {
+  grid-column: 2 / 4;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 100px 300px 1fr;
+  /* a grid-section será separada em três colunas */
+  grid-gap: gap;
+  /* espaço entre os grid-items */
+  /*margin-bottom: 4rem; /* margin bottom em relação aos pixels usados em 16 x 4 aproximadamente */
+}
+
+/* Responsivo */
+body {
+  color: #222;
+  background-color: #FAF6ED;
+  display: grid;
+  /* irá utilizar grid layout */
+  grid-template-columns: 40px 120px auto 40px;
+  /* as duas colunas de 1fr será uma na esquerda e outra na direita, os 120px é para o texto ficar quebrado para o lado e o minmax de 300px a 800px é para o conteúdo */
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    grid-template-columns: 1fr;
+    /* mudando para 1 coluna de 1fr no responsivo */
+  }
+}
+
+/* classes gerais que aparecem em mais de uma parte da página */
+.titulo {
+  font-family: "Playfair Display SC", georgia;
+  font-size: 4rem;
+  grid-column: 1 / 4;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .titulo {
+    font-size: 3rem;
+  }
+}
+
+/* Menu */
+.nav {
+  grid-column: 2 / 5;
+  /* separado em quatro colunas o site, porém para contar vai até 5 pela questão de linha do grid layout, aqui está dizendo que o menu irá usar todas as colunas */
+  background-color: #FB5;
+  margin-top: 2rem;
+  /* pega a tipografia como base para fazer a margem, por exemplo se o padrão for 16px a distância seria 32px */
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .nav {
+    grid-column: 1;
+  }
+}
+
+.nav ul {
+  display: flex;
+  /* usando flexbox para items ficarem uma ao lado do outro */
+  flex-wrap: wrap;
+  /* caso não tiver espaço quebra o conteúdo */
+  padding: 10px;
+  /* para separar o conteúdo da lista de cima,baixo, esquerda e direita */
+}
+
+.nav li a {
+  display: block;
+  padding: 10px;
+  /* aumentando área de contato */
+  margin-right: 10px;
+  /* separando um do outro */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.125em;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Fim menu */
+.animais h2 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 1rem;
+  color: #E54;
+}
+
+.animais h2::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 15px;
+  margin-right: 15px;
+  background-color: #FB5;
+}
+
+.animais p {
+  font-family: Helvetica, arial;
+  margin-bottom: 1rem;
+  /* 8px */
+  font-size: 1.125em;
+  line-height: 1.6em;
+  max-width: 600px;
+}
+
+.animais p:last-child {
+  margin-bottom: 0;
+}
+
+.animais-lista {
+  height: 370px;
+  overflow-y: scroll;
+  /* quando estourar o eixo y no caso o taminho o heigth de 370 px irá aparecer uma barra de scrool */
+  grid-column: 2;
+  /* coluna de 300px, a coluna de 100px é vazia para dar uma diferença nos títulos */
+}
+
+.animais-lista::-webkit-scrollbar {
+  width: 18px;
+  /* largura da scrollbar */
+}
+
+.animais-lista::-webkit-scrollbar-thumb {
+  /* rolagem usada na scroolbar */
+  background-color: #FB5;
+  border-left: 4px solid #FAF6ED;
+  border-right: 4px solid #FAF6ED;
+}
+
+.animais-lista::-webkit-scrollbar-track {
+  /* cor de fundo da scroolbar */
+  background-color: #FAF6ED;
+}
+
+.animais-descricao {
+  grid-column: 3;
+  /* irá ficar na coluna de 1fr */
+}
+
+.animais-descricao section {
+  margin-bottom: 3rem;
+  /* 48px */
+}
+
+.animais-descricao section:last-child {
+  margin-bottom: 0;
+}
+
+.faq-lista {
+  grid-column: 2 / 4;
+}
+
+.faq-lista dt {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: .5rem;
+  /* 8px */
+  color: #E54;
+}
+
+.faq-lista dt::before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 15px;
+  margin-right: 15px;
+  background-color: #FB5;
+}
+
+.faq-lista dd {
+  margin-left: 40px;
+  font-family: Helvetica, arial;
+  margin-bottom: 1rem;
+  /* 8px */
+  font-size: 1.125em;
+  line-height: 1.6em;
+  max-width: 600px;
+}
+
+.contato-mapa {
+  grid-column: 2;
+}
+
+.contato-dados {
+  grid-column: 3;
+}
+
+.contato-dados li {
+  font-family: Helvetica, arial;
+  margin-bottom: 1rem;
+  /* 16px de distância em cada item da lista */
+  font-size: 1.125em;
+}
+
+.contato-dados li::before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 15px;
+  margin-right: 15px;
+  background-color: #FB5;
+}
+
+.contato-dados li a {
+  color: #222;
+}
+
+.contato-dados li a:hover {
+  transition: ease-in .3s;
+  color: #E54;
+}
+
+.rodape {
+  grid-column: 2 / 5;
+  /* para ficar alinhado ao menu */
+  background-color: #FB5;
+  margin-top: 2rem;
+  /* pega a tipografia como base para fazer a margem, por exemplo se o padrão for 16px a distância seria 32px */
+  margin-bottom: 2rem;
+}
+
+.rodape p {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.125em;
+  font-weight: bold;
+  color: #222;
+  padding: 20px;
+}

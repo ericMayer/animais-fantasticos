@@ -1,0 +1,34 @@
+/* Menu */
+
+.nav {
+    grid-column: 2 / 5; /* separado em quatro colunas o site, porém para contar vai até 5 pela questão de linha do grid layout, aqui está dizendo que o menu irá usar todas as colunas */
+    
+    background-color: $cor-menu;
+
+    @include margem-menu-e-rodape;
+
+    @include d(m) {
+        grid-column: 1;
+    }
+}
+
+.nav ul {
+    display: flex; /* usando flexbox para items ficarem uma ao lado do outro */
+    flex-wrap: wrap; /* caso não tiver espaço quebra o conteúdo */
+    padding: 10px; /* para separar o conteúdo da lista de cima,baixo, esquerda e direita */
+}
+
+.nav li a {
+    display: block;
+    padding: 10px; /* aumentando área de contato */
+    margin-right: 10px; /* separando um do outro */
+
+    font-weight: bold;
+    text-transform: uppercase;
+
+    letter-spacing: .1em;
+
+    @include menu-e-rodape;
+}
+
+/* Fim menu */

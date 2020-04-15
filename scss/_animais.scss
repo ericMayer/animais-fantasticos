@@ -1,0 +1,44 @@
+.animais h2 {
+    font-family: $fonte-principal;
+    font-size: 1.5em;
+    text-transform: uppercase;
+
+    letter-spacing: .1em;
+    margin-bottom: 1rem;
+
+    color: $cor-animais;
+
+    @include separador-1;
+}
+
+.animais p { 
+    @include texto;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.animais-lista {
+
+    height: 370px;
+
+    overflow-y: scroll; /* quando estourar o eixo y no caso o taminho o heigth de 370 px irá aparecer uma barra de scrool */
+
+    grid-column: 2; /* coluna de 300px, a coluna de 100px é vazia para dar uma diferença nos títulos */
+
+    @include scrollbar;
+}
+
+.animais-descricao {
+    grid-column: 3; /* irá ficar na coluna de 1fr */
+}
+
+.animais-descricao section {
+   margin-bottom: 3rem; /* 48px */
+
+   
+   &:last-child {
+       margin-bottom: 0;
+   }
+}

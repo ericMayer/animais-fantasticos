@@ -1,0 +1,14 @@
+.rodape {
+    grid-column: 2 / 5; /* para ficar alinhado ao menu */
+    background-color: $cor-menu;
+
+    @include margem-menu-e-rodape;
+
+}
+
+.rodape p {
+
+    @include menu-e-rodape;
+
+    padding: 20px;
+}
