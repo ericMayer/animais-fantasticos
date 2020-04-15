@@ -28,10 +28,19 @@
     grid-column: 2; /* coluna de 300px, a coluna de 100px é vazia para dar uma diferença nos títulos */
 
     @include scrollbar;
+
+    @include d(m) { /* responsivo */
+        grid-column: 1;
+        margin-right: 5px;
+    }
 }
 
 .animais-descricao {
     grid-column: 3; /* irá ficar na coluna de 1fr */
+
+    @include d(m) {
+        grid-column: 2;
+    }
 }
 
 .animais-descricao section {

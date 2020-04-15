@@ -1,5 +1,10 @@
 .faq-lista {
     grid-column: 2 / 4;
+
+
+    @include d(m) { /* no celular */
+        grid-column: 1 / 3; /* irá pegar o conteúdo de ponta a ponta */
+    }
 }
 
 .faq-lista dt {

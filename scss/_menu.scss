@@ -9,6 +9,7 @@
 
     @include d(m) {
         grid-column: 1;
+        margin-top: 0px;
     }
 }
 
@@ -29,6 +30,11 @@
     letter-spacing: .1em;
 
     @include menu-e-rodape;
+
+    @include d(m) {
+        margin-right: 5px;
+        padding: 5px;
+    }
 }
 
 /* Fim menu */

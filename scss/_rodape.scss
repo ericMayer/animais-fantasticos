@@ -4,6 +4,12 @@
 
     @include margem-menu-e-rodape;
 
+    @include d(m) {
+        grid-column: 1;
+
+        margin-bottom: 0px;
+    }
+
 }
 
 .rodape p {
