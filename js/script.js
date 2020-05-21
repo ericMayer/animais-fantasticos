@@ -1,9 +1,9 @@
-"use strict";
+// "use strict";
 
 // Importando modules
 
 import nav from "./modules/nav-link-interno.js";
-import animais from "./modules/animais-conteudo.js";
+import NavListaAnimais from "./modules/animais-conteudo.js";
 import faq from "./modules/faq-lista.js";
 import scroll from "./modules/scroll-conteudo.js";
 import initModal from "./modules/modal.js";
@@ -17,7 +17,14 @@ import bitcoin from "./modules/bitcoin-fetch.js";
 // Execução incial das funções
 
 nav();
-animais();
+
+const animais = new NavListaAnimais(
+  '[data-anime="animais-lista"] li',
+  '[data-anime="animais-descricao"] section',
+  ["click", "touchstart"]
+);
+animais.iniciar();
+
 faq();
 scroll();
 initModal();
