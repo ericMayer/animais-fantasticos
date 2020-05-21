@@ -1,8 +1,8 @@
-"use strict";
+// "use strict";
 
 // Importando modules
 
-import nav from "./modules/nav-link-interno.js";
+import NavLinksInternos from "./modules/nav-link-interno.js";
 import animais from "./modules/animais-conteudo.js";
 import faq from "./modules/faq-lista.js";
 import scroll from "./modules/scroll-conteudo.js";
@@ -16,7 +16,13 @@ import bitcoin from "./modules/bitcoin-fetch.js";
 
 // Execução incial das funções
 
-nav();
+const nav = new NavLinksInternos('[data-anime="menu"] a[href^="#"', [
+  "click",
+  "touchstart",
+]);
+
+nav.iniciar();
+
 animais();
 faq();
 scroll();
