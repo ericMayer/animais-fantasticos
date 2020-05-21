@@ -1,27 +1,33 @@
-export default function faq() {
-  const faqLista = document.querySelectorAll('[data-anime="faq"] dt'); // pegando todas as perguntas
+export default class FaqAccordion {
+  constructor(element, eventos) {
+    this.faqLista = document.querySelectorAll(element);
+    this.eventos = eventos;
+    this.ativo = "ativo";
+  }
 
-  const ativo = "ativo"; // criando uma variavel para que seja adicionado a classe ativo no html
+  ativou(item) {
+    item.classList.toggle(this.ativo);
 
-  const ativou = (element) => {
-    element.classList.toggle(ativo); // usando o this que nesse caso, por se tratar de evento referencia o item clicado
+    item.nextElementSibling.classList.toggle(this.ativo); // adiciona se não tiver e remove se tiver
+  }
 
-    element.nextElementSibling.classList.toggle(ativo); // adicionando classe ativo ao próximo elemento depois do dt, no caso o ativo
-
-    // caso tiver a classe irá remover e se não tiver irá adicionar
-  };
-
-  if (faqLista.length) {
-    // caso a faqLista tenha algum item
-
-    faqLista[0].classList.add(ativo); // adicionando ativo no primeiro item para que o usuário perceba que é possível abrir o conteúdo
-    faqLista[0].nextElementSibling.classList.add(ativo); // adicionando no próximo elemento também a classe ativo
-
-    faqLista.forEach((item) => {
-      // será adicionado evento de click em cada dt
-      item.addEventListener("click", () => {
-        ativou(item);
-      }); // adicionando evento de click e chamando a função ativo
+  // adicionando eventos
+  addEvent() {
+    this.eventos.forEach((evento) => {
+      this.faqLista.forEach((item) => {
+        // será adicionado evento de click em cada dt
+        item.addEventListener(evento, () => {
+          this.ativou(item);
+        }); // adicionando evento de click e chamando a função ativo
+      });
     });
+  }
+
+  iniciar() {
+    if (this.faqLista.length) {
+      this.addEvent();
+      this.ativou(this.faqLista[0]); // ativando o primeiro na primeira vez que abrir o site
+    }
+    return this;
   }
 }
