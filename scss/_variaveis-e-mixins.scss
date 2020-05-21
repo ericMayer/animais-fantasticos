@@ -1,79 +1,80 @@
 // background
 
-$cor-fundo: #FAF6ED;
-$cor-menu: #FB5;
+$cor-fundo: #faf6ed;
+$cor-menu: #fb5;
 $cor-texto: #222;
-$cor-animais: #E54;
+$cor-animais: #e54;
 $cor-branca: #fff;
 $cor-preta: #000;
-$cor-aberto: #32CD32;
+$cor-aberto: #32cd32;
 
 // fontes
 
-$fonte-principal: 'IBM Plex Mono', monospace;
-$fonte-secundaria: 'Playfair Display SC', georgia;
+$fonte-principal: "IBM Plex Mono", monospace;
+$fonte-secundaria: "Playfair Display SC", georgia;
 $fonte-terciaria: Helvetica, arial;
 
 // mixins
 
 @mixin menu-e-rodape {
-    font-family: $fonte-principal;
-    font-size: 1.125em;
-    font-weight: bold;
-    color: $cor-texto;
+  font-family: $fonte-principal;
+  font-size: 1.125em;
+  font-weight: bold;
+  color: $cor-texto;
 }
 
 @mixin margem-menu-e-rodape {
-    margin-top: 2rem; /* pega a tipografia como base para fazer a margem, por exemplo se o padrão for 16px a distância seria 32px */
-    margin-bottom: 2rem;
+  margin-top: 2rem; /* pega a tipografia como base para fazer a margem, por exemplo se o padrão for 16px a distância seria 32px */
+  margin-bottom: 2rem;
 }
 
-
 @mixin scrollbar {
-    &::-webkit-scrollbar {
-        width: 18px; /* largura da scrollbar */
-    }
+  &::-webkit-scrollbar {
+    width: 18px; /* largura da scrollbar */
+  }
 
-    &::-webkit-scrollbar-thumb { /* rolagem usada na scroolbar */
-        background-color: $cor-menu;
-        border-left: 4px solid $cor-fundo;
-        border-right: 4px solid $cor-fundo;
-    }
-      
-    &::-webkit-scrollbar-track { /* cor de fundo da scroolbar */
-        background-color: $cor-fundo;
-    }
+  &::-webkit-scrollbar-thumb {
+    /* rolagem usada na scroolbar */
+    background-color: $cor-menu;
+    border-left: 4px solid $cor-fundo;
+    border-right: 4px solid $cor-fundo;
+  }
+
+  &::-webkit-scrollbar-track {
+    /* cor de fundo da scroolbar */
+    background-color: $cor-fundo;
+  }
 }
 
 @mixin texto {
-    font-family: $fonte-terciaria;
-    margin-bottom: 1rem; /* 8px */
-    font-size: 1.125em;
-    line-height: 1.6em;
-    max-width: 600px;
+  font-family: $fonte-terciaria;
+  margin-bottom: 1rem; /* 8px */
+  font-size: 1.125em;
+  line-height: 1.6em;
+  max-width: 600px;
 }
 
 @mixin separador-1 {
-    &::before {
-        content: '';
-        display: inline-block;
+  &::before {
+    content: "";
+    display: inline-block;
 
-        width: 40px;
-        height: 15px;
-        margin-right: 15px;
-        background-color: $cor-menu;
-    }
+    width: 40px;
+    height: 15px;
+    margin-right: 15px;
+    background-color: $cor-menu;
+  }
 }
 
 @mixin separador-2 {
-    &::before {
-        content: '';
-        display: inline-block;
+  &::before {
+    content: "";
+    display: inline-block;
 
-        width: 25px;
-        height: 15px;
-        margin-right: 15px;
+    width: 25px;
+    height: 15px;
+    margin-right: 15px;
 
-        background-color: $cor-menu;
-    }
+    background-color: $cor-menu;
+  }
 }

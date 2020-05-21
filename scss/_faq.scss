@@ -1,66 +1,64 @@
 .faq-lista {
-    grid-column: 2 / 4;
+  grid-column: 2 / 4;
 
-
-    @include d(m) { /* no celular */
-        grid-column: 1 / 3; /* irá pegar o conteúdo de ponta a ponta */
-    }
+  @include d(m) {
+    /* no celular */
+    grid-column: 1 / 3; /* irá pegar o conteúdo de ponta a ponta */
+  }
 }
 
 .faq-lista dt {
-    font-family: $fonte-principal;
-    font-weight: bold;
+  font-family: $fonte-principal;
+  font-weight: bold;
 
-    font-size: 1.5em;
-    margin-bottom: .5rem; /* 8px */
+  font-size: 1.5em;
+  margin-bottom: 0.5rem; /* 8px */
 
-    color: $cor-animais;
+  color: $cor-animais;
 
-    @include separador-2;
+  @include separador-2;
 }
 
 .js .js-faq-lista dt::after {
-    margin-left: 10px; /* separando os itens */
+  margin-left: 10px; /* separando os itens */
 
-    /* adicionando a seta após o conteúdo */
-    content: '⮟';
-    
+  /* adicionando a seta após o conteúdo */
+  content: "⮟";
 }
 
 .js [data-anime="faq"] dt {
-    cursor: pointer; // colocando como clicável o título da lista, apenas se o javascript estiver habilitado
+  cursor: pointer; // colocando como clicável o título da lista, apenas se o javascript estiver habilitado
 }
 
 .js [data-anime="faq"] dt.ativo::after {
-    /* caso tenha a classe ativo */
-    content: '⮝';
+  /* caso tenha a classe ativo */
+  content: "⮝";
 }
 
 .faq-lista dd {
-    margin-left: 40px;
-    
-    @include texto;
+  margin-left: 40px;
+
+  @include texto;
 }
 
 .js [data-anime="faq"] dd {
-    display: none; /* deixando de exibir o conteúdo */
+  display: none; /* deixando de exibir o conteúdo */
 }
 
 .js [data-anime="faq"] dd.ativo {
-    display: block; /* caso tenha a classe ativo, volta a exibir o conteúdo */
+  display: block; /* caso tenha a classe ativo, volta a exibir o conteúdo */
 
-    animation: tabDown .5s forwards; // chamando animação, definindo tempo de execução e que deve ficar no estado final
+  animation: tabDown 0.5s forwards; // chamando animação, definindo tempo de execução e que deve ficar no estado final
 }
 
-@keyframes tabDown { // criando animação para a transição ficar suave
+@keyframes tabDown {
+  // criando animação para a transição ficar suave
 
-    from {
-        opacity: 0;
+  from {
+    opacity: 0;
+  }
 
-    }
-    
-    to {
-        opacity: 1;
-    }
-
+  to {
+    opacity: 1;
+  }
 }

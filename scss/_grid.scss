@@ -3,66 +3,59 @@
 $gap: 20px;
 $medium-large: 700px;
 
-
 /* Responsivo */
-
 
 // d = device
 // m = medium
 
 @mixin d($size) {
-    @if $size == m {
-        @media only screen and (max-width: $medium-large) {
-            @content;
-        }
+  @if $size == m {
+    @media only screen and (max-width: $medium-large) {
+      @content;
     }
+  }
 }
-
 
 // Grid
 
-
 @mixin grid-container {
-    display: grid; /* irá utilizar grid layout */
+  display: grid; /* irá utilizar grid layout */
 
-    grid-template-columns: 40px 120px auto 40px; /* as duas colunas de 1fr será uma na esquerda e outra na direita, os 120px é para o texto ficar quebrado para o lado e o minmax de 300px a 800px é para o conteúdo */
+  grid-template-columns: 40px 120px auto 40px; /* as duas colunas de 1fr será uma na esquerda e outra na direita, os 120px é para o texto ficar quebrado para o lado e o minmax de 300px a 800px é para o conteúdo */
 
-    @include d(m) {
-        grid-template-columns: 1fr; /* mudando para 1 coluna de 1fr no responsivo */
-    }
+  @include d(m) {
+    grid-template-columns: 1fr; /* mudando para 1 coluna de 1fr no responsivo */
+  }
 }
 
 .grid-container {
-    @include grid-container;
+  @include grid-container;
 }
 
 @mixin grid-section {
-    grid-column: 2 / 4;
+  grid-column: 2 / 4;
 
-    width: 100%;
+  width: 100%;
 
-    padding: 10px;
+  padding: 10px;
 
-    display: grid;
+  display: grid;
 
-    grid-template-columns: 100px 300px 1fr; /* a grid-section será separada em três colunas */
+  grid-template-columns: 100px 300px 1fr; /* a grid-section será separada em três colunas */
 
-    grid-gap: $gap; /* espaço entre os grid-items */
+  grid-gap: $gap; /* espaço entre os grid-items */
 
-    /*margin-bottom: 4rem; /* margin bottom em relação aos pixels usados em 16 x 4 aproximadamente */
+  /*margin-bottom: 4rem; /* margin bottom em relação aos pixels usados em 16 x 4 aproximadamente */
 
-    @include d(m) {
-        grid-column: 1; /* irá utilizar uma coluna também */
-        
-        grid-template-columns: 100px 1fr; /* irá ser separado em duas colunas uma para o menu dos animais e outra para o conteúdo */
+  @include d(m) {
+    grid-column: 1; /* irá utilizar uma coluna também */
 
-        //grid-gap: $gap / 2; /* diminuindo pela metade o gap */
-    }
-    
+    grid-template-columns: 100px 1fr; /* irá ser separado em duas colunas uma para o menu dos animais e outra para o conteúdo */
+
+    //grid-gap: $gap / 2; /* diminuindo pela metade o gap */
+  }
 }
 
 .grid-section {
-    @include grid-section;
+  @include grid-section;
 }
-
-

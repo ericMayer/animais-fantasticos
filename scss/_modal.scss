@@ -1,90 +1,90 @@
 .modal-container {
-    width: 100vw; /* vw 100 que é o 100% da largura */
-    height: 100vh; /* será utilizado a proprieda vh 100% que é o 100% da altura */
-    background: rgba(0, 0, 0, .5); /* transparência da cor */
-    z-index: 10; /* para ficar na frente de tudo, caso seja adicionado algum outro item com z-index no site */
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none; /* irá ficar invísivel até ser clicado no botão */
-    justify-content: center; /* alinhando na horizontal ao centro */
-    align-items: center; /* alinhando na vertical ao centro */
+  width: 100vw; /* vw 100 que é o 100% da largura */
+  height: 100vh; /* será utilizado a proprieda vh 100% que é o 100% da altura */
+  background: rgba(0, 0, 0, 0.5); /* transparência da cor */
+  z-index: 10; /* para ficar na frente de tudo, caso seja adicionado algum outro item com z-index no site */
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none; /* irá ficar invísivel até ser clicado no botão */
+  justify-content: center; /* alinhando na horizontal ao centro */
+  align-items: center; /* alinhando na vertical ao centro */
 }
 
-.modal-container.ativo { /* quando tiver a classe ativo será display flex */
-    display: flex;
+.modal-container.ativo {
+  /* quando tiver a classe ativo será display flex */
+  display: flex;
 }
 
 .modal-form {
-    padding: 40px;
-    background-color: $cor-fundo;
-    border: 6px solid $cor-menu;
-    box-shadow: 0 0 0 6px $cor-branca,
-                0 0 0 8px $cor-menu;
-    // uma borda sem sombra para horizontal e vertical, sem blurr, e expandindo em 6px da cor branca
-    position: relative; /* para que o x seja posicionado em referência a esse elemento */
-    min-width: 500px;
+  padding: 40px;
+  background-color: $cor-fundo;
+  border: 6px solid $cor-menu;
+  box-shadow: 0 0 0 6px $cor-branca, 0 0 0 8px $cor-menu;
+  // uma borda sem sombra para horizontal e vertical, sem blurr, e expandindo em 6px da cor branca
+  position: relative; /* para que o x seja posicionado em referência a esse elemento */
+  min-width: 500px;
 }
 
 @keyframes modal {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -50px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+  from {
+    opacity: 0;
+    transform: translate3d(0, -50px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-.modal-container.ativo .modal-form  {
-    animation: modal .5s forwards; /* forwards é que deve permanecer no estado final a animação */
+.modal-container.ativo .modal-form {
+  animation: modal 0.5s forwards; /* forwards é que deve permanecer no estado final a animação */
 }
 
 .modal-fechar {
-    position: absolute; /* posição absoluta em relação ao pai, o modal-form */
-    font-family: $fonte-principal;
-    // font-weight: bold;
-    font-size: 1.2rem; /* 16px */
-    color: $cor-preta;
-    top: -30px;
-    right: -30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid $cor-animais;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3);
-    background-color: $cor-fundo;
-    cursor: pointer;
-    outline: none; /* tirando azul que fica quando clicado no botão*/
+  position: absolute; /* posição absoluta em relação ao pai, o modal-form */
+  font-family: $fonte-principal;
+  // font-weight: bold;
+  font-size: 1.2rem; /* 16px */
+  color: $cor-preta;
+  top: -30px;
+  right: -30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid $cor-animais;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  background-color: $cor-fundo;
+  cursor: pointer;
+  outline: none; /* tirando azul que fica quando clicado no botão*/
 }
 
 .modal-form label {
-    @include menu-e-rodape;
-    display: block;
-    margin: 1rem 0 .5rem 0;
+  @include menu-e-rodape;
+  display: block;
+  margin: 1rem 0 0.5rem 0;
 }
 
 .modal-form input {
-    @include menu-e-rodape;
-    color: normal;
-    font-weight: normal;
-    outline: none;
-    margin-top: .5rem;
-    width: 100%;
-    padding: .6rem;
+  @include menu-e-rodape;
+  color: normal;
+  font-weight: normal;
+  outline: none;
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.6rem;
 }
 
 .modal-form button[type="submit"] {
-    display: block;
-    border: none;
-    border-radius: 4px;
-    padding: 1rem 2rem;
-    color: $cor-texto;
-    font-family: $fonte-principal;
-    background-color: $cor-menu;
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    cursor: pointer;
-    outline: none;
+  display: block;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  color: $cor-texto;
+  font-family: $fonte-principal;
+  background-color: $cor-menu;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  outline: none;
 }

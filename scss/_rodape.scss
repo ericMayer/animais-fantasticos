@@ -1,20 +1,18 @@
 .rodape {
-    grid-column: 2 / 5; /* para ficar alinhado ao menu */
-    background-color: $cor-menu;
+  grid-column: 2 / 5; /* para ficar alinhado ao menu */
+  background-color: $cor-menu;
 
-    @include margem-menu-e-rodape;
+  @include margem-menu-e-rodape;
 
-    @include d(m) {
-        grid-column: 1;
+  @include d(m) {
+    grid-column: 1;
 
-        margin-bottom: 0px;
-    }
-
+    margin-bottom: 0px;
+  }
 }
 
 .rodape p {
+  @include menu-e-rodape;
 
-    @include menu-e-rodape;
-
-    padding: 20px;
+  padding: 20px;
 }

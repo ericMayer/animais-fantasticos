@@ -1,31 +1,42 @@
 /* Reset */
 
-body, h1, h2, ul, li, p, dd, dt, dl {
-    padding: 0px;
-    margin: 0px;
+body,
+h1,
+h2,
+ul,
+li,
+p,
+dd,
+dt,
+dl {
+  padding: 0px;
+  margin: 0px;
 }
 
 ul {
-    list-style: none; /* tirando a bolinha padrão que veem do lado da lista */
+  list-style: none; /* tirando a bolinha padrão que veem do lado da lista */
 }
 
 a {
-    text-decoration: none; /* tirando o sublinhado dos links */
+  text-decoration: none; /* tirando o sublinhado dos links */
 }
 
 img {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
-*, *::before, *::after { /* será em todos os elementos do html, inclusive os before e after */
-    /* não soma os valores por exemplo da borda, padding, margem ao tamanho do total width ou heigth, por exemplo, width: 200px padding:20 será 200px o width, sem o box-sizing: seria 240px; */
-    box-sizing: border-box;
-    -moz-box-sizing: border-box; /* firefox, versões mais antigas */
-    -webkit-box-sizing: border-box; /* chrome e safari versões mais antigas */
+*,
+*::before,
+*::after {
+  /* será em todos os elementos do html, inclusive os before e after */
+  /* não soma os valores por exemplo da borda, padding, margem ao tamanho do total width ou heigth, por exemplo, width: 200px padding:20 será 200px o width, sem o box-sizing: seria 240px; */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; /* firefox, versões mais antigas */
+  -webkit-box-sizing: border-box; /* chrome e safari versões mais antigas */
 }
 
 body {
-    -webkit-font-smoothing: antialiased; /* tirando a opção que por padrão no chrome deixa a fonte suave */
-    -moz-font-smoothing: antialiased; /* firefox */
+  -webkit-font-smoothing: antialiased; /* tirando a opção que por padrão no chrome deixa a fonte suave */
+  -moz-font-smoothing: antialiased; /* firefox */
 }

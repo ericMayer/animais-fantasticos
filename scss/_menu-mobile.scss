@@ -1,66 +1,67 @@
 .menu-hamburguer {
-    display: none; // para não ser exibido
+  display: none; // para não ser exibido
 }
 
 .js .menu-hamburguer {
-    @include d(m) {
-        display: flex; // para exibir no mobile
-        align-items: center; // alinhando ao centro na vertical
-        background-color: $cor-texto;
-        border: none;
-        padding: 1rem;
-        border-radius: 4px;
+  @include d(m) {
+    display: flex; // para exibir no mobile
+    align-items: center; // alinhando ao centro na vertical
+    background-color: $cor-texto;
+    border: none;
+    padding: 1rem;
+    border-radius: 4px;
 
-        cursor: pointer;
-        margin: 10px;
-        z-index: 300;
-        position: relative;
-        outline: none; // efeito azul que fica ao clicar no botão
+    cursor: pointer;
+    margin: 10px;
+    z-index: 300;
+    position: relative;
+    outline: none; // efeito azul que fica ao clicar no botão
 
-        &::before {
-            content: '';
-            display: inline-block;
-            height: 4px;
-            width: 25px;
-            background-color: $cor-menu;
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 4px;
+      width: 25px;
+      background-color: $cor-menu;
 
-            box-shadow: 0 8px $cor-menu, // sombra para baixo
-                        0 -8px $cor-menu; // sombra para o topo
-            transition: transform .5s;
-        }
+      box-shadow: 0 8px $cor-menu,
+        // sombra para baixo
+          0 -8px $cor-menu; // sombra para o topo
+      transition: transform 0.5s;
     }
+  }
 }
 
 .js .menu-hamburguer.ativo {
-    &::before {
-        transform: rotate(90deg);
-    }
+  &::before {
+    transform: rotate(90deg);
+  }
 }
 
 .js .menu-list {
-    @include d(m) {
-        position: absolute;
-        background-color: $cor-menu;
-        display: none;
-        z-index: 200;
-        width: 190px;
-        top: 0;
-        padding: 60px 0 20px 0px;
+  @include d(m) {
+    position: absolute;
+    background-color: $cor-menu;
+    display: none;
+    z-index: 200;
+    width: 190px;
+    top: 0;
+    padding: 60px 0 20px 0px;
 
-        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, .2);
-    }
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+  }
 }
 
 .js .menu-list.ativo {
-    @include d(m) {
-        display: block;
-        animation: show-down .5s forwards;
-    }
+  @include d(m) {
+    display: block;
+    animation: show-down 0.5s forwards;
+  }
 }
 
 .js .dropdown-menu {
-    @include d(m) {
-        position: static;
-        border: none;
-    }
+  @include d(m) {
+    position: static;
+    border: none;
+  }
 }

@@ -1,17 +1,17 @@
 .js .horario::after {
-    content: '';
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 2px solid $cor-texto;
-    margin-left: 6px;
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid $cor-texto;
+  margin-left: 6px;
 }
 
 .js .horario.fechado::after {
-    background-color: $cor-animais;
+  background-color: $cor-animais;
 }
 
 .js .horario.aberto::after {
-    background-color: $cor-aberto;
+  background-color: $cor-aberto;
 }

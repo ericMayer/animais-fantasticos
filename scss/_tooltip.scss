@@ -1,26 +1,20 @@
 .tooltip {
-    position: absolute; // ficará acima dos outros itens
-    z-index: 20; // ficará sempre acima dos outros itens
+  position: absolute; // ficará acima dos outros itens
+  z-index: 20; // ficará sempre acima dos outros itens
 
-   
-   
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 2px $cor-menu, 0 0 0 6px rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
+  color: $cor-branca;
 
-    background: rgba(0, 0, 0, .6);
-    box-shadow: 0 0 0 2px $cor-menu,
-                0 0 0 6px rgba(0, 0, 0, .6);
-    padding: .5rem;
-    color: $cor-branca;
+  font-family: $fonte-principal;
+  font-size: 1.125em;
+  font-weight: bold;
 
-    font-family: $fonte-principal;
-    font-size: 1.125em;
-    font-weight: bold;
-    
-    
+  max-width: 150px;
+  border-radius: 2px;
 
-    max-width: 150px;
-    border-radius: 2px;
-
-    @include d(m) {
-        display: none; // não será exibido contéudo, pois fica ruim com touch ideal apenas quando estiver usando computador
-    }
+  @include d(m) {
+    display: none; // não será exibido contéudo, pois fica ruim com touch ideal apenas quando estiver usando computador
+  }
 }

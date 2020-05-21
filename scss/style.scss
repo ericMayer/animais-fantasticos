@@ -1,45 +1,37 @@
 // Geral
 
-@import 'reset';
-@import 'variaveis-e-mixins';
-@import 'grid';
-@import 'geral';
+@import "reset";
+@import "variaveis-e-mixins";
+@import "grid";
+@import "geral";
 
 // Partes da página
 
-@import 'menu';
-@import 'animais';
-@import 'faq';
-@import 'contato';
-@import 'rodape';
+@import "menu";
+@import "animais";
+@import "faq";
+@import "contato";
+@import "rodape";
 
 // Modal
 
-@import 'modal';
+@import "modal";
 
 // Tooltip
-@import 'tooltip';
+@import "tooltip";
 
 // Menu Dropdown
 
-@import 'dropdown-menu';
+@import "dropdown-menu";
 
 // Menu Mobile
 
-@import 'menu-mobile';
+@import "menu-mobile";
 
 // Números
 
-@import 'numeros';
+@import "numeros";
 
 // Horário de funcionamento
 
-@import 'horario';
-
-
-
-
-
-
-
-
+@import "horario";

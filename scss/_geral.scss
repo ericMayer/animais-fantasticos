@@ -1,37 +1,33 @@
-
 body {
-    color: $cor-texto;
-    background-color: $cor-fundo;
-    
-   
+  color: $cor-texto;
+  background-color: $cor-fundo;
 }
 
 /* classes gerais que aparecem em mais de uma parte da página */
 
 .titulo {
-    font-family: $fonte-secundaria;
+  font-family: $fonte-secundaria;
 
-    font-size: 4rem;
-    grid-column: 1 / 4;
-    font-weight: normal;
+  font-size: 4rem;
+  grid-column: 1 / 4;
+  font-weight: normal;
 
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 
-    @include d(m) {
-        font-size: 3rem;
-    }
+  @include d(m) {
+    font-size: 3rem;
+  }
 }
-
 
 // animação geral do scroll
 
 .js [data-anime="conteudo"] {
-    opacity: 0;
-    transition: .3s;
-    transform: translate3d(-30px, 0, 0);
+  opacity: 0;
+  transition: 0.3s;
+  transform: translate3d(-30px, 0, 0);
 }
 
 .js [data-anime="conteudo"].ativo {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
