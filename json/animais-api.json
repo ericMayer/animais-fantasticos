@@ -1,0 +1,31 @@
+[
+  {
+    "especie": "Raposa",
+    "quantidade": 5529
+  },
+
+  {
+    "especie": "Esquilo",
+    "quantidade": 125780
+  },
+
+  {
+    "especie": "Urso",
+    "quantidade": 2356
+  },
+
+  {
+    "especie": "Lobo",
+    "quantidade": 5678
+  },
+
+  {
+    "especie": "Macaco",
+    "quantidade": 10345
+  },
+
+  {
+    "especie": "Leão",
+    "quantidade": 325
+  }
+]

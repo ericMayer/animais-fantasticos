@@ -1,157 +1,362 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>Animais Fantásticos</title>
 
+    <script>
+      document.documentElement.className += " js"; // adicionando a classe js no documentElement, no caso o html, assim caso tiver a classe js será usado o as classes css. Esse script só será executado se o JavaScript estiver habilitado, ou seja, se não tiver nada acontece e não adicionado nehuma classe na tag html. Com o classname é possível atribuir um novo valor é no novo valor é adicionado ' js' com espaço para caso já tiver uma outra classe não criar uma classe nova aleatória, por exemplo pt-brjs
+      // poderia ser usado o método add do classlist, porém devido a falta de suporte para browser mais antigo é usado o classname que é uma propriedade que retorna todas as classes que têm no html
+    </script>
 
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700|Playfair+Display+SC" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700|Playfair+Display+SC"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
+    <div class="grid-container">
+      <nav class="nav" data-anime="menu">
+        <!-- não está expandindo o conteúdo e será usado para controlar o menu-mobile  -->
+        <button
+          data-menu="mobile"
+          aria-expanded="false"
+          aria-controls="menu-mobile"
+          class="menu-hamburguer"
+        ></button>
 
-    <nav class="nav">
-        <ul>
-            <li><a href="#animais">Animais</a></li>
-            <li><a href="#faq">Faq</a></li>
-            <li><a href="#contato">Contato</a></li>
-            <li><a href="https://github.com/ericMayer/" target="_blank">Dev →</a></li>
+        <ul data-menu="list" id="menu-mobile" class="menu-list">
+          <li><a href="#animais">Animais</a></li>
+          <li><a href="#faq">Faq</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="" data-modal="login">Login</a></li>
+          <li data-dropdown="menu">
+            <a href="">Sobre</a>
+            <ul class="dropdown-menu">
+              <li><a href="">A Empresa</a></li>
+              <li><a href="">Equipe</a></li>
+              <li><a href="">Sócios</a></li>
+              <li><a href="">Investidores</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="https://github.com/ericMayer/" target="_blank">Dev →</a>
+          </li>
         </ul>
-    </nav>
+      </nav>
 
-    <section class="grid-section animais" id="animais">
-
+      <section class="grid-section animais" data-anime="conteudo" id="animais">
         <h1 class="titulo">Animais Fantásticos</h1>
 
-        <ul class="animais-lista">
-            <li><img src="img/imagem1.jpg" alt="Raposa"></li>
-            <li><img src="img/imagem2.jpg" alt="Esquilo"></li>
-            <li><img src="img/imagem3.jpg" alt="Urso"></li>
-            <li><img src="img/imagem4.jpg" alt="Lobo"></li>
-            <li><img src="img/imagem5.jpg" alt="Macaco"></li>
-            <li><img src="img/imagem6.jpg" alt="Leão"></li>
+        <ul class="animais-lista" data-anime="animais-lista">
+          <li><img src="img/imagem1.jpg" alt="Raposa" /></li>
+          <li><img src="img/imagem2.jpg" alt="Esquilo" /></li>
+          <li><img src="img/imagem3.jpg" alt="Urso" /></li>
+          <li><img src="img/imagem4.jpg" alt="Lobo" /></li>
+          <li><img src="img/imagem5.jpg" alt="Macaco" /></li>
+          <li><img src="img/imagem6.jpg" alt="Leão" /></li>
         </ul>
 
-        <div class="animais-descricao">
+        <div class="animais-descricao" data-anime="animais-descricao">
+          <section data-anime="show-down">
+            <h2>Raposa</h2>
 
-            <section>
-                <h2>Raposa</h2>
+            <p>
+              As raposas são animais mamíferos e onívoros pertencentes à família
+              Canidae. São vulpídeos de porte médio, caracterizados por um
+              focinho comprido e uma cauda longa e peluda. Também apresentam
+              como particularidade suas pupilas ovais, semelhantes às pupilas
+              verticais dos felídeos.
+            </p>
 
-                <p>As raposas são animais mamíferos e onívoros pertencentes à família Canidae. São vulpídeos de porte médio, caracterizados por um focinho comprido e uma cauda longa e peluda. Também apresentam como particularidade suas pupilas ovais, semelhantes às pupilas verticais dos felídeos.</p>
+            <p>
+              De cerca de 40 espécies reconhecidas como raposas, somente 12
+              pertencem ao gênero Vulpes das "raposas verdadeiras", do qual a
+              raposa vermelha é a mais comum.
+            </p>
 
-                <p>De cerca de 40 espécies reconhecidas como raposas, somente 12 pertencem ao gênero Vulpes das "raposas verdadeiras", do qual a raposa vermelha é a mais comum.</p>
+            <p>
+              As raposas sul-americanas, embora sejam canídeos, não pertencem ao
+              gênero Vulpes. Por essa razão, biologicamente, são consideradas
+              "falsas raposas". Seu gênero é denominado Pseudalopex (pseud =
+              falso // alopex = raposa). O nome popular foi atribuído às raposas
+              por sua semelhança tanto física quanto comportamental com as
+              raposas do hemisfério Norte.
+            </p>
 
-                <p>As raposas sul-americanas, embora sejam canídeos, não pertencem ao gênero Vulpes. Por essa razão, biologicamente, são consideradas "falsas raposas". Seu gênero é denominado Pseudalopex (pseud = falso // alopex = raposa). O nome popular foi atribuído às raposas por sua semelhança tanto física quanto comportamental com as raposas do hemisfério Norte.</p>
+            <p>Existe mais de 30 espécies diferentes de raposa.</p>
+          </section>
 
-                <p>Existe mais de 30 espécies diferentes de raposa.</p>
+          <section data-anime="show-right">
+            <h2>Esquilo</h2>
 
-            </section>
+            <p>
+              Os esquilos pertencem a uma grande família de mamíferos roedores,
+              de pequeno e médio porte, conhecida como Sciuridae. No Brasil, são
+              também conhecidos como serelepe, caxinguelê, caxinxe, quatimirim,
+              quatipuru, agutipuru ou acutipuru.
+            </p>
 
-            <section>
-                <h2>Esquilo</h2>
+            <p>
+              Na Galiza e em algumas zonas de Portugal, também é conhecido por
+              esquio.
+            </p>
 
-                <p>Os esquilos pertencem a uma grande família de mamíferos roedores, de pequeno e médio porte, conhecida como Sciuridae. No Brasil, são também conhecidos como serelepe, caxinguelê, caxinxe, quatimirim, quatipuru, agutipuru ou acutipuru.</p>
+            <p>
+              Os esquilos estão espalhados por quase todo o mundo, a maioria nas
+              zonas de climas temperado ou tropical, mas também em algumas zonas
+              de clima frio. Como todos os roedores, possui presas fortíssimas,
+              com que roem facilmente sementes, principalmente bolotas.
+            </p>
+          </section>
 
-                <p>Na Galiza e em algumas zonas de Portugal, também é conhecido por esquio.</p>
+          <section data-anime="show-down">
+            <h2>Urso</h2>
 
-                <p>Os esquilos estão espalhados por quase todo o mundo, a maioria nas zonas de climas temperado ou tropical, mas também em algumas zonas de clima frio. Como todos os roedores, possui presas fortíssimas, com que roem facilmente sementes, principalmente bolotas.</p>
+            <p>
+              Os Ursos (latim científico: Ursidae) constituem uma família de
+              mamíferos plantígrados, da ordem Carnivora, geralmente de grande
+              porte, contendo os ursos e os pandas. Embora classificado como
+              urso, e logo após, como procionídeo, junto com o panda-vermelho, o
+              panda-gigante foi recolocado dentro da família dos ursídeos devido
+              às novas pesquisas genéticas. Algumas características comuns dos
+              ursos são pelagem espessa, rabo curto, o olfato desenvolvido e as
+              garras não retráteis. Os ursídeos são geralmente animais
+              omnívoros.
+            </p>
 
-            </section>
+            <p>
+              As espécies mais antigas e primitivas desta família estão reunidas
+              no gênero Ballusia, do Mioceno Inferior, que ainda retêm
+              características similares aos Hemicyonidae. Do Ballusia descende o
+              gênero Ursavus, fonte dos ursíneos, e talvez o Agriarctos,
+              ancestral dos agrioteríneos.
+            </p>
 
-            <section>
-                <h2>Urso</h2>
+            <p>
+              Os ursos existem em todos os continentes, em exceção na África,
+              embora algumas fontes afirmem terem avistado o Urso nandi, mas sem
+              comprovarem a sua existência.
+            </p>
+          </section>
 
-                <p>Os Ursos (latim científico: Ursidae) constituem uma família de mamíferos plantígrados, da ordem Carnivora, geralmente de grande porte, contendo os ursos e os pandas. Embora classificado como urso, e logo após, como procionídeo, junto com o panda-vermelho, o panda-gigante foi recolocado dentro da família dos ursídeos devido às novas pesquisas genéticas. Algumas características comuns dos ursos são pelagem espessa, rabo curto, o olfato desenvolvido e as garras não retráteis. Os ursídeos são geralmente animais omnívoros.</p>
+          <section data-anime="show-right">
+            <h2>Lobo</h2>
 
-                <p>As espécies mais antigas e primitivas desta família estão reunidas no gênero Ballusia, do Mioceno Inferior, que ainda retêm características similares aos Hemicyonidae. Do Ballusia descende o gênero Ursavus, fonte dos ursíneos, e talvez o Agriarctos, ancestral dos agrioteríneos.</p>
+            <p>
+              Lobo-cinzento (nome científico: Canis lupus) é uma espécie de
+              mamífero canídeo do gênero Canis. É um sobrevivente da Era do
+              Gelo, originário do Pleistoceno Superior, cerca de 300 mil anos
+              atrás. É o maior membro remanescente selvagem da família canidae.
+              O sequenciamento de DNA e estudos genéticos reafirmam que o
+              lobo-cinzento é ancestral do cão doméstico (Canis lupus
+              familiaris), contudo alguns aspectos desta afirmação têm sido
+              questionados recentemente.
+            </p>
 
-                <p>Os ursos existem em todos os continentes, em exceção na África, embora algumas fontes afirmem terem avistado o Urso nandi, mas sem comprovarem a sua existência.</p>
+            <p>
+              Uma série de outras subespécies do lobo-cinzento foram
+              identificadas, embora o número real de subespécies ainda esteja em
+              discussão. Os lobos-cinzentos são tipicamente predadores ápice nos
+              ecossistemas que ocupam. Embora não sejam tão adaptáveis à
+              presença humana como geralmente ocorre com as demais espécies de
+              canídeos, os lobos se desenvolveram em diversos ambientes, como
+              florestas temperadas, desertos, montanhas, tundras, taigas, campos
+              e até mesmo em algumas áreas urbanas.
+            </p>
 
-            </section>
+            <p>
+              O lobo-cinzento (Canis lupus), o lobo-vermelho (Canis rufus) e o
+              lobo-etíope (Canis simensis) são as únicas três espécies
+              classificadas como lobos.
+            </p>
 
-            <section>
-                <h2>Lobo</h2>
+            <p>
+              Os demais lobos correspondem a subespécies derivadas das três
+              espécies citadas anteriormente.
+            </p>
+          </section>
 
-                <p>Lobo-cinzento (nome científico: Canis lupus) é uma espécie de mamífero canídeo do gênero Canis. É um sobrevivente da Era do Gelo, originário do Pleistoceno Superior, cerca de 300 mil anos atrás. É o maior membro remanescente selvagem da família canidae. O sequenciamento de DNA e estudos genéticos reafirmam que o lobo-cinzento é ancestral do cão doméstico (Canis lupus familiaris), contudo alguns aspectos desta afirmação têm sido questionados recentemente.</p>
+          <section data-anime="show-down">
+            <h2>Macaco</h2>
 
-                <p>Uma série de outras subespécies do lobo-cinzento foram identificadas, embora o número real de subespécies ainda esteja em discussão. Os lobos-cinzentos são tipicamente predadores ápice nos ecossistemas que ocupam. Embora não sejam tão adaptáveis à presença humana como geralmente ocorre com as demais espécies de canídeos, os lobos se desenvolveram em diversos ambientes, como florestas temperadas, desertos, montanhas, tundras, taigas, campos e até mesmo em algumas áreas urbanas.</p>
+            <p>
+              Macaco é um termo de origem africana (provavelmente do banto
+              makako) utilizado como designação comum a todas as espécies de
+              símios ou primatas antropoides. É aplicada restritivamente no
+              Brasil aos cebídeos (ou macacos do Novo Mundo) em geral. No
+              sentido estrito, "macaco" refere-se às espécies de primatas
+              pertencentes ao género Macaca.
+            </p>
 
-                <p>O lobo-cinzento (Canis lupus), o lobo-vermelho (Canis rufus) e o lobo-etíope (Canis simensis) são as únicas três espécies classificadas como lobos.</p>
+            <p>
+              A designação mico se origina, segundo o Dicionário Aurélio,do
+              caraíba (karib) continental. É bastante usada no Brasil, onde
+              costuma aplicar-se às espécies do gênero Cebus, no Sul, e às
+              espécies de pequeno porte, ou saguis, no Norte.
+            </p>
 
-                <p>Os demais lobos correspondem a subespécies derivadas das três espécies citadas anteriormente.</p>
+            <p>
+              O termo sagui se origina do tupi antigo sagûi e também designa os
+              macacos calitriquídeos de pequeno porte.
+            </p>
+          </section>
 
-            </section>
+          <section data-anime="show-right">
+            <h2>Leão</h2>
 
-            <section>
-                <h2>Macaco</h2>
+            <p>
+              O leão (nome científico: Panthera leo) é uma espécie de mamífero
+              carnívoro do gênero Panthera e da família Felidae. A espécie é
+              atualmente encontrada na África subsaariana e na Ásia, com uma
+              única população remanescente em perigo, no Parque Nacional da
+              Floresta de Gir, Gujarat, Índia. Foi extinto na África do Norte e
+              no Sudoeste Asiático em tempos históricos, e até o Pleistoceno
+              Superior, há cerca de 10 000 anos, era o mais difundido grande
+              mamífero terrestre depois dos humanos, sendo encontrado na maior
+              parte da África, em muito da Eurásia, da Europa Ocidental à Índia,
+              e na América, do Yukon ao México. É uma dos quatro grandes
+              felinos, com alguns machos excedendo 250 quilogramas em peso,
+              sendo o segundo maior felino recente depois do tigre.
+            </p>
 
-                <p>Macaco é um termo de origem africana (provavelmente do banto makako) utilizado como designação comum a todas as espécies de símios ou primatas antropoides. É aplicada restritivamente no Brasil aos cebídeos (ou macacos do Novo Mundo) em geral. No sentido estrito, "macaco" refere-se às espécies de primatas pertencentes ao género Macaca.</p>
+            <p>
+              A pelagem é unicolor de coloração castanha, e os machos apresentam
+              uma juba característica. Uma das características mais marcantes da
+              espécie é a presença de um tufo de pelos pretos na cauda, que
+              também possui uma espora. Habita preferencialmente as savanas e
+              pastagens abertas, mas pode ser encontrado em regiões mais
+              arbustivas. É um animal sociável que vive em grupos que consiste
+              das leoas e suas crias, o macho dominante e alguns machos jovens
+              que ainda não alcançaram a maturidade sexual. A dieta consiste
+              principalmente de grandes ungulados e possuem hábitos noturnos e
+              crepusculares, descansando e dormindo na maior parte do dia. Leões
+              vivem por volta de 10-14 anos na natureza, enquanto em cativeiro
+              eles podem viver por até 30 anos. Alguns animais desenvolveram o
+              hábito de atacar e devorar humanos, ficando conhecidos como
+              "devoradores de homens".
+            </p>
 
-                <p>A designação mico se origina, segundo o Dicionário Aurélio,do caraíba (karib) continental. É bastante usada no Brasil, onde costuma aplicar-se às espécies do gênero Cebus, no Sul, e às espécies de pequeno porte, ou saguis, no Norte.</p>
-
-                <p>O termo sagui se origina do tupi antigo sagûi e também designa os macacos calitriquídeos de pequeno porte.</p>
-
-            </section>
-
-            <section>
-                <h2>Leão</h2>
-
-                <p>O leão (nome científico: Panthera leo) é uma espécie de mamífero carnívoro do gênero Panthera e da família Felidae. A espécie é atualmente encontrada na África subsaariana e na Ásia, com uma única população remanescente em perigo, no Parque Nacional da Floresta de Gir, Gujarat, Índia. Foi extinto na África do Norte e no Sudoeste Asiático em tempos históricos, e até o Pleistoceno Superior, há cerca de 10 000 anos, era o mais difundido grande mamífero terrestre depois dos humanos, sendo encontrado na maior parte da África, em muito da Eurásia, da Europa Ocidental à Índia, e na América, do Yukon ao México. É uma dos quatro grandes felinos, com alguns machos excedendo 250 quilogramas em peso, sendo o segundo maior felino recente depois do tigre.</p>
-
-                <p>A pelagem é unicolor de coloração castanha, e os machos apresentam uma juba característica. Uma das características mais marcantes da espécie é a presença de um tufo de pelos pretos na cauda, que também possui uma espora. Habita preferencialmente as savanas e pastagens abertas, mas pode ser encontrado em regiões mais arbustivas. É um animal sociável que vive em grupos que consiste das leoas e suas crias, o macho dominante e alguns machos jovens que ainda não alcançaram a maturidade sexual. A dieta consiste principalmente de grandes ungulados e possuem hábitos noturnos e crepusculares, descansando e dormindo na maior parte do dia. Leões vivem por volta de 10-14 anos na natureza, enquanto em cativeiro eles podem viver por até 30 anos. Alguns animais desenvolveram o hábito de atacar e devorar humanos, ficando conhecidos como "devoradores de homens".</p>
-
-                <p>A espécie está classificada como "vulnerável" pela União Internacional para a Conservação da Natureza e dos Recursos Naturais (IUCN), e sofreu um declínio populacional de 30-50% nas últimas duas décadas no território africano. Na Ásia, o leão está confinado a uma única área protegida e sua população é estável, mas está classificado como "em perigo", já que a população não passa de 350 animais. Entre as ameaças, a perda de habitat e os conflitos com humanos são as principais razões de preocupação na sua conservação. Por centenas de anos, o leão tem sido usado como símbolo de bravura e nobreza em diversas civilizações e culturas da Europa, Ásia e África. Está amplamente representado em esculturas, pinturas, bandeiras nacionais, brasões, e em filmes e na literatura contemporâneos.</p>
-
-            </section>
-
+            <p>
+              A espécie está classificada como "vulnerável" pela União
+              Internacional para a Conservação da Natureza e dos Recursos
+              Naturais (IUCN), e sofreu um declínio populacional de 30-50% nas
+              últimas duas décadas no território africano. Na Ásia, o leão está
+              confinado a uma única área protegida e sua população é estável,
+              mas está classificado como "em perigo", já que a população não
+              passa de 350 animais. Entre as ameaças, a perda de habitat e os
+              conflitos com humanos são as principais razões de preocupação na
+              sua conservação. Por centenas de anos, o leão tem sido usado como
+              símbolo de bravura e nobreza em diversas civilizações e culturas
+              da Europa, Ásia e África. Está amplamente representado em
+              esculturas, pinturas, bandeiras nacionais, brasões, e em filmes e
+              na literatura contemporâneos.
+            </p>
+          </section>
         </div>
+      </section>
 
-    </section>
-
-    <section class="grid-section faq" id="faq">
+      <section class="grid-section faq" data-anime="conteudo" id="faq">
         <h1 class="titulo">Faq</h1>
 
-        <dl class="faq-lista">
-            <dt>Qual a idade dos animais?</dt>
-            <dd>As raposas são animais mamíferos e onívoros pertencentes à família Canidae. São vulpídeos de porte médio, caracterizados por um focinho comprido e uma cauda longa e peluda.</dd>
+        <dl class="faq-lista" data-anime="faq">
+          <dt>Qual a idade dos animais?</dt>
+          <dd>
+            As raposas são animais mamíferos e onívoros pertencentes à família
+            Canidae. São vulpídeos de porte médio, caracterizados por um focinho
+            comprido e uma cauda longa e peluda.
+          </dd>
 
-            <dt>Eles são fantásticos?</dt>
-            <dd>Também apresentam como particularidade suas pupilas ovais, semelhantes às pupilas verticais dos felídeos.</dd>
+          <dt>Eles são fantásticos?</dt>
+          <dd>
+            Também apresentam como particularidade suas pupilas ovais,
+            semelhantes às pupilas verticais dos felídeos.
+          </dd>
 
-            <dt>Qual a diferença?</dt>
-            <dd>As raposas são animais mamíferos e onívoros pertencentes à família Canidae. São vulpídeos de porte médio, caracterizados por um focinho comprido e uma cauda longa e peluda.<dd>
+          <dt>Qual a diferença?</dt>
+          <dd>
+            As raposas são animais mamíferos e onívoros pertencentes à família
+            Canidae. São vulpídeos de porte médio, caracterizados por um focinho
+            comprido e uma cauda longa e peluda.
+          </dd>
+          <dd></dd>
 
-            <dt>Como proteger?</dt>
-            <dd>Também apresentam como particularidade suas pupilas ovais, semelhantes às pupilas verticais dos felídeos.</dd>
-
+          <dt>Como proteger?</dt>
+          <dd>
+            Também apresentam como particularidade suas pupilas ovais,
+            semelhantes às pupilas verticais dos felídeos.
+          </dd>
         </dl>
-    </section>
-    
-    <section class="grid-section contato" id="contato">
+      </section>
+
+      <section class="grid-section quantidade" data-anime="conteudo">
+        <h1 class="titulo">Números</h1>
+
+        <div class="quantidade-grid"></div>
+      </section>
+
+      <section class="grid-section contato" data-anime="conteudo" id="contato">
         <h1 class="titulo">Contato</h1>
 
-        
-
         <ul class="contato-dados">
-            <li><a href="https://github.com/ericMayer" target="_blank">https://github.com/ericMayer</a></li>
-            <li>+55 (12) 9999-9999</li>
-            <li>Cidade Nova Jacareí, nº 1000</li>
-            <li>Jacareí - SP</li>
+          <li>
+            <a href="https://github.com/ericMayer" target="_blank"
+              >https://github.com/ericMayer</a
+            >
+          </li>
+          <li>+55 (12) 9999-9999</li>
+          <li>Cidade Nova Jacareí, nº 1000</li>
+          <li>Jacareí - SP</li>
+          <li>
+            Doe
+            <span class="contato-doe" data-bitcoin="doacao"></span>
+            bitcoin
+          </li>
+          <li data-semana="1,2,3,4,5" data-horario="8,18" class="horario">
+            Seg à Sex das 8h às 18h00
+          </li>
         </ul>
 
         <div class="contato-mapa">
-            <img src="img/mapa.png" alt="Localização da Organização Animais Fantásticos">
+          <!--aria-lable um rótulo que não fica vísivel na tela diretamente, igual title, porém fica vísivel para leitores de tela-->
+          <img
+            src="img/mapa.png"
+            alt="Localização da Organização Animais Fantásticos"
+            data-tooltip="informacao"
+            aria-label="Próximo ao Mandarim."
+          />
         </div>
+      </section>
+
+      <footer class="rodape">
+        <p>© Alguns direitos reservados.</p>
+      </footer>
+    </div>
+
+    <section class="modal-container" data-modal="container">
+      <div class="modal-form">
+        <button class="modal-fechar" data-modal="fechar">X</button>
+
+        <form action="" method="post">
+          <label for="login">Login</label>
+          <input type="text" name="login" id="login" />
+          <label for="senha">Senha</label>
+          <input type="password" name="senha" id="senha" />
+          <button type="submit" data-modal="button">Login</button>
+        </form>
+      </div>
     </section>
 
-    <footer class="rodape">
-        <p>© Alguns direitos reservados.</p>
-    </footer>
-    
-</body>
-
+    <!-- <script src="js/exercicio.js"></script> -->
+    <!-- <script src="js/modules/animacoes.js"></script> -->
+    <script type="module" src="js/main.js"></script>
+    <!-- será utilizado o module nativo do javascript ES6+ para fazer o export e import dos arquivos javascript-->
+  </body>
 </html>

@@ -1,7 +1,7 @@
 // variaveis
 
 $gap: 20px;
-$medium-large: 860px;
+$medium-large: 700px;
 
 
 /* Responsivo */
@@ -20,6 +20,21 @@ $medium-large: 860px;
 
 
 // Grid
+
+
+@mixin grid-container {
+    display: grid; /* irá utilizar grid layout */
+
+    grid-template-columns: 40px 120px auto 40px; /* as duas colunas de 1fr será uma na esquerda e outra na direita, os 120px é para o texto ficar quebrado para o lado e o minmax de 300px a 800px é para o conteúdo */
+
+    @include d(m) {
+        grid-template-columns: 1fr; /* mudando para 1 coluna de 1fr no responsivo */
+    }
+}
+
+.grid-container {
+    @include grid-container;
+}
 
 @mixin grid-section {
     grid-column: 2 / 4;

@@ -35,6 +35,10 @@
     }
 }
 
+.js .animais-lista li { // só será mostrado que é possível clicar na imagem, se tiver habilitado o javascript do navegador, pois se não tiver não têm sentido essa funcionalidade
+    cursor: pointer; // mostrando para o usuário que é possível clicar nessa opção
+}
+
 .animais-descricao {
     grid-column: 3; /* irá ficar na coluna de 1fr */
 
@@ -50,4 +54,45 @@
    &:last-child {
        margin-bottom: 0;
    }
+}
+
+// classe usada no javascritp para fazer a navegação
+.js [data-anime="animais-descricao"] section {
+    display: none; // sumindo com o conteúdo para acessibilidade é ruim, pois não irá aparecer o contéudo para o leitor de tela
+}
+
+.js [data-anime="animais-descricao"] section.ativo { // caso a section tenha a classe ativo que é quando o usuário seleciona algo, será exibido o conteúdo novamente
+    display: block !important; // colocando como importante, pois caso tiver algo fazendo o contrário a isso, será considerado esse como o mais importante
+   
+}
+
+.js [data-anime="animais-descricao"] section.ativo.show-right { // caso a section tenha a classe ativo que é quando o usuário seleciona algo, será exibido o conteúdo novamente
+    animation: show-rigth .5s forwards; /* chamando a animação e colocando o tempo da animação que é meio segundo e dizendo que a animação deve ficar no estado final e não voltar para o inicial*/
+}
+
+.js [data-anime="animais-descricao"] section.ativo.show-down { // caso a section tenha a classe ativo que é quando o usuário seleciona algo, será exibido o conteúdo novamente
+    animation: show-down .5s forwards; /* chamando a animação e colocando o tempo da animação que é meio segundo e dizendo que a animação deve ficar no estado final e não voltar para o inicial*/
+}
+
+
+@keyframes show-rigth { // criando uma animação com o css
+    from {
+        opacity: 0; // transparência 0
+        transform: translate3d(-30px, 0, 0); // tx (horizontal), ty (vertical), eixo tz
+    }
+    to {
+        opacity: 1; // transparência 1
+        transform: translate3d(0, 0, 0); // tx (horizontal), ty (vertical), eixo tz
+    }
+}
+
+@keyframes show-down { // criando uma animação com o css que o conteúdo virá de cima para a baixo
+    from {
+        opacity: 0; // transparência 0
+        transform: translate3d(0, -30px, 0); // tx (horizontal), ty (vertical), eixo tz
+    }
+    to {
+        opacity: 1; // transparência 1
+        transform: translate3d(0, 0, 0); // tx (horizontal), ty (vertical), eixo tz
+    }
 }

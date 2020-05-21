@@ -19,8 +19,48 @@
     @include separador-2;
 }
 
+.js .js-faq-lista dt::after {
+    margin-left: 10px; /* separando os itens */
+
+    /* adicionando a seta após o conteúdo */
+    content: '⮟';
+    
+}
+
+.js [data-anime="faq"] dt {
+    cursor: pointer; // colocando como clicável o título da lista, apenas se o javascript estiver habilitado
+}
+
+.js [data-anime="faq"] dt.ativo::after {
+    /* caso tenha a classe ativo */
+    content: '⮝';
+}
+
 .faq-lista dd {
     margin-left: 40px;
     
     @include texto;
+}
+
+.js [data-anime="faq"] dd {
+    display: none; /* deixando de exibir o conteúdo */
+}
+
+.js [data-anime="faq"] dd.ativo {
+    display: block; /* caso tenha a classe ativo, volta a exibir o conteúdo */
+
+    animation: tabDown .5s forwards; // chamando animação, definindo tempo de execução e que deve ficar no estado final
+}
+
+@keyframes tabDown { // criando animação para a transição ficar suave
+
+    from {
+        opacity: 0;
+
+    }
+    
+    to {
+        opacity: 1;
+    }
+
 }

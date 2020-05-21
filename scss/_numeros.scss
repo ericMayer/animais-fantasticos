@@ -1,0 +1,25 @@
+.quantidade-grid {
+    grid-column: 2 / 4;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+
+    @include d(m) {
+        grid-column: 1;
+    }
+}
+
+.quantidade-animal h2 {
+    font-size: 2.5em;
+    font-family: $fonte-secundaria;
+    font-weight: normal;
+    margin-bottom: .5rem;
+}
+
+.quantidade-animal span {
+    font-family: $fonte-principal;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: $cor-animais;
+}

@@ -3,13 +3,7 @@ body {
     color: $cor-texto;
     background-color: $cor-fundo;
     
-    display: grid; /* irá utilizar grid layout */
-
-    grid-template-columns: 40px 120px auto 40px; /* as duas colunas de 1fr será uma na esquerda e outra na direita, os 120px é para o texto ficar quebrado para o lado e o minmax de 300px a 800px é para o conteúdo */
-
-    @include d(m) {
-        grid-template-columns: 1fr; /* mudando para 1 coluna de 1fr no responsivo */
-    }
+   
 }
 
 /* classes gerais que aparecem em mais de uma parte da página */
@@ -26,4 +20,18 @@ body {
     @include d(m) {
         font-size: 3rem;
     }
+}
+
+
+// animação geral do scroll
+
+.js [data-anime="conteudo"] {
+    opacity: 0;
+    transition: .3s;
+    transform: translate3d(-30px, 0, 0);
+}
+
+.js [data-anime="conteudo"].ativo {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
