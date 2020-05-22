@@ -6,8 +6,11 @@ import nav from "./modules/nav-link-interno.js";
 import animais from "./modules/animais-conteudo.js";
 import faq from "./modules/faq-lista.js";
 import scroll from "./modules/scroll-conteudo.js";
+
+import TooltipInfo from "./modules/tooltip.js";
+
 import Modal from "./modules/modal.js";
-import initTooltip from "./modules/tooltip.js";
+
 import dropdown from "./modules/dropdown-menu.js";
 import menuMobile from "./modules/menu-mobile.js";
 import aberto from "./modules/horario.js";
@@ -21,6 +24,9 @@ animais();
 faq();
 scroll();
 
+const tooltip = new TooltipInfo('[data-tooltip="informacao"]');
+tooltip.iniciar();
+
 const modal = new Modal(
   '[data-modal="login"',
   '[data-modal="fechar"',
@@ -29,14 +35,7 @@ const modal = new Modal(
   ["click", "touchstart"]
 );
 modal.iniciar();
-/*
-  const login = document.querySelector('[data-modal="login"');
-  const fechar = document.querySelector('[data-modal="fechar"');
-  const container = document.querySelector('[data-modal="container"]');
-  const button = document.querySelector('[data-modal="button"]');
-*/
 
-initTooltip();
 dropdown();
 menuMobile();
 aberto();
