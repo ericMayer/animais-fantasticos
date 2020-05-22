@@ -1,38 +1,45 @@
-export default function animais() {
-  const animaisLista = document.querySelectorAll(
-    '[data-anime="animais-lista"] li'
-  ); // selecionando a lista de animais
-  const animaisDescricao = document.querySelectorAll(
-    '[data-anime="animais-descricao"] section'
-  ); // selecionando a descrição do texto do animail
+export default class NavListaAnimais {
+  constructor(lista, descricao, eventos) {
+    // selecionando a lista de animais
+    this.animaisLista = document.querySelectorAll(lista);
 
-  const ativo = "ativo"; // criando uma variavel para que seja adicionado a classe ativo no html
+    // selecionando a descrição do texto do animail
+    this.animaisDescricao = document.querySelectorAll(descricao);
 
-  const eventos = ["click", "touchstart"];
+    this.eventos = eventos;
+    this.ativo = "ativo";
+  }
 
-  const ativou = (index) => {
-    // função que adiciona ativo ao item clicado
-
-    animaisDescricao.forEach((item) => {
-      item.classList.remove(ativo); // removendo a classe ativo
+  // função que adiciona ativo ao item clicado
+  ativou(index) {
+    // removendo a classe de todos os itens
+    this.animaisDescricao.forEach((item) => {
+      item.classList.remove(this.ativo);
     });
 
-    const animacao = animaisDescricao[index].dataset.anime; // pegando o valor da propriedade do html data-anime
+    // pegando o tipo de animação que será
+    const animacao = this.animaisDescricao[index].dataset.anime;
 
-    animaisDescricao[index].classList.add(ativo, animacao); // adicionando classe ativo no item clicado e a classa data-anime
-  };
+    // adicionando classe ativo no item clicado e a classa data-anime, para fazer a animação
+    this.animaisDescricao[index].classList.add(this.ativo, animacao);
+  }
 
-  if (animaisLista.length && animaisDescricao.length) {
-    animaisDescricao[0].classList.add(ativo); // adicionando a classe ativo para não ficar em branco o site
-
-    // adicionando eventos a todos os itens da lista de animais
-    eventos.forEach((evento) => {
-      animaisLista.forEach((item, index) => {
+  // adicionando evento em cada item
+  addEvent() {
+    this.eventos.forEach((evento) => {
+      this.animaisLista.forEach((item, index) => {
         item.addEventListener(evento, () => {
-          // adicionando evento em cada item
-          ativou(index); // chamando a função ativo que irá adicionar a classe exatamente no item clicado
+          // chamando a função ativo que irá adicionar a no item clicado
+          this.ativou(index);
         });
       });
     });
+  }
+
+  iniciar() {
+    if (this.animaisLista.length && this.animaisDescricao.length) {
+      this.ativou(0); // ativando o primeiro item
+      this.addEvent();
+    }
   }
 }

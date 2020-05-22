@@ -1,7 +1,14 @@
-export default function initTooltip() {
-  const info = document.querySelectorAll('[data-tooltip="informacao"]');
+export default class TooltipInfo {
+  constructor(info) {
+    this.info = document.querySelectorAll(info);
 
-  const criandoTooltip = (element) => {
+    // alterando referência do this
+    this.tirouMouse = this.tirouMouse.bind(this);
+    this.mousePorCima = this.mousePorCima.bind(this);
+    this.moveuMouse = this.moveuMouse.bind(this);
+  }
+
+  criandoTooltip(element) {
     const divTooltip = document.createElement("div"); // criando uma div nova
     divTooltip.classList.add("tooltip"); // adicionando classe para que seja estilizado a tooltip
 
@@ -10,48 +17,55 @@ export default function initTooltip() {
     divTooltip.innerText = texto; // adicionando texto na div
 
     document.body.appendChild(divTooltip); // adicionando ao final do documento
-    return divTooltip;
-  };
+    this.varTooltip = divTooltip;
+  }
 
-  const moveuMouse = {
-    handleEvent(event) {
-      // atualizando cordenadas do top e left para ficar seguindo o mouse a caixa com a informação
-      this.varTooltip.style.top = `${event.pageY + 20}px`;
+  moveuMouse(event) {
+    // atualizando cordenadas do top e left para ficar seguindo o mouse a caixa com a informação
+    this.varTooltip.style.top = `${event.pageY + 20}px`;
+
+    // verifica se a posição do mouse na tela + 200 que seria o valor da tooltip é maior que a tela
+    if (event.pageX + 200 >= window.innerWidth) {
+      // diminuindo a posição horizontal para não estourar a tela
+      this.varTooltip.style.left = `${event.pageX - 170}px`;
+    } else {
       this.varTooltip.style.left = `${event.pageX + 20}px`;
-    },
-  };
+    }
+  }
 
-  const tirouMouse = {
-    handleEvent() {
-      // obrigatoriamente todos objetos que são passados em eventos têm que ter a função handleEvent para ser executado
+  tirouMouse(event) {
+    const { currentTarget: item } = event;
 
-      this.varTooltip.remove(); // removendo o elemento do hmtl para não exibir mais
+    this.varTooltip.remove(); // removendo o elemento do hmtl para não exibir mais
 
-      this.element.removeEventListener("mouseleave", tirouMouse); // para remover um evento é necessário passar os mesmos parâmetros usados para chamar o evento
+    item.removeEventListener("mouseleave", this.tirouMouse); // para remover um evento é necessário passar os mesmos parâmetros usados para chamar o evento
 
-      this.element.removeEventListener("mousemove", moveuMouse); // removendo evento de mousemove
-    },
-  };
+    item.removeEventListener("mousemove", this.moveuMouse); // removendo evento de mousemove
+  }
 
-  const mousePorCima = (event, item) => {
-    const varTooltip = criandoTooltip(item); // passando o this como parâmetro, pois o this do evento é o item que foi adicionado o evento, o valor da varíavel será o return da função
+  mousePorCima(event) {
+    // desestruturando e pegnado valor do event.currentTarget e colocando em item
+    const { currentTarget: item } = event;
 
-    varTooltip.style.top = `${event.pageY + 20}px`;
-    varTooltip.style.left = `${event.pageX + 20}px`;
+    this.criandoTooltip(item); // passando a imagem para pegar os paramêtros para criar a tooltip
 
-    tirouMouse.element = item; // passando o this para o objeto tirouMouse, pois assim é possível remover o evento que foi adicionado
-    tirouMouse.varTooltip = varTooltip;
-    item.addEventListener("mouseleave", tirouMouse); // adicioando evento para quando o mouse for removido
+    item.addEventListener("mouseleave", this.tirouMouse); // adicioando evento para quando o mouse for removido
 
-    moveuMouse.varTooltip = varTooltip;
-    item.addEventListener("mousemove", moveuMouse);
-  };
+    // pega o event currentTarget que é onde está o mouse quando foi acionado o evento de mouseover
+    item.addEventListener("mousemove", this.moveuMouse);
+  }
 
-  if (info) {
-    info.forEach((item) => {
-      item.addEventListener("mouseover", (event) => {
-        mousePorCima(event, item);
-      });
+  // adiciona evento
+  addEvent() {
+    this.info.forEach((item) => {
+      item.addEventListener("mouseover", this.mousePorCima);
     });
+  }
+
+  iniciar() {
+    if (this.info.length) {
+      this.addEvent();
+    }
+    return this;
   }
 }
