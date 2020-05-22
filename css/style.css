@@ -1,26 +1,41 @@
 @charset "UTF-8";
 /* Reset */
-body, h1, h2, ul, li, p, dd, dt, dl {
+/* line 3, ../projetos/animais-fantasticos/scss/_reset.scss */
+body,
+h1,
+h2,
+ul,
+li,
+p,
+dd,
+dt,
+dl {
   padding: 0px;
   margin: 0px;
 }
 
+/* line 16, ../projetos/animais-fantasticos/scss/_reset.scss */
 ul {
   list-style: none;
   /* tirando a bolinha padrão que veem do lado da lista */
 }
 
+/* line 20, ../projetos/animais-fantasticos/scss/_reset.scss */
 a {
   text-decoration: none;
   /* tirando o sublinhado dos links */
 }
 
+/* line 24, ../projetos/animais-fantasticos/scss/_reset.scss */
 img {
   display: block;
   max-width: 100%;
 }
 
-*, *::before, *::after {
+/* line 29, ../projetos/animais-fantasticos/scss/_reset.scss */
+*,
+*::before,
+*::after {
   /* será em todos os elementos do html, inclusive os before e after */
   /* não soma os valores por exemplo da borda, padding, margem ao tamanho do total width ou heigth, por exemplo, width: 200px padding:20 será 200px o width, sem o box-sizing: seria 240px; */
   box-sizing: border-box;
@@ -30,6 +45,7 @@ img {
   /* chrome e safari versões mais antigas */
 }
 
+/* line 39, ../projetos/animais-fantasticos/scss/_reset.scss */
 body {
   -webkit-font-smoothing: antialiased;
   /* tirando a opção que por padrão no chrome deixa a fonte suave */
@@ -38,6 +54,7 @@ body {
 }
 
 /* Responsivo */
+/* line 31, ../projetos/animais-fantasticos/scss/_grid.scss */
 .grid-container {
   display: grid;
   /* irá utilizar grid layout */
@@ -46,12 +63,14 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 31, ../projetos/animais-fantasticos/scss/_grid.scss */
   .grid-container {
     grid-template-columns: 1fr;
     /* mudando para 1 coluna de 1fr no responsivo */
   }
 }
 
+/* line 59, ../projetos/animais-fantasticos/scss/_grid.scss */
 .grid-section {
   grid-column: 2 / 4;
   width: 100%;
@@ -65,6 +84,7 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 59, ../projetos/animais-fantasticos/scss/_grid.scss */
   .grid-section {
     grid-column: 1;
     /* irá utilizar uma coluna também */
@@ -73,12 +93,14 @@ body {
   }
 }
 
+/* line 1, ../projetos/animais-fantasticos/scss/_geral.scss */
 body {
   color: #222;
-  background-color: #FAF6ED;
+  background-color: #faf6ed;
 }
 
 /* classes gerais que aparecem em mais de uma parte da página */
+/* line 8, ../projetos/animais-fantasticos/scss/_geral.scss */
 .titulo {
   font-family: "Playfair Display SC", georgia;
   font-size: 4rem;
@@ -88,39 +110,45 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 8, ../projetos/animais-fantasticos/scss/_geral.scss */
   .titulo {
     font-size: 3rem;
   }
 }
 
+/* line 24, ../projetos/animais-fantasticos/scss/_geral.scss */
 .js [data-anime="conteudo"] {
   opacity: 0;
-  transition: .3s;
+  transition: 0.3s;
   transform: translate3d(-30px, 0, 0);
 }
 
+/* line 30, ../projetos/animais-fantasticos/scss/_geral.scss */
 .js [data-anime="conteudo"].ativo {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
 /* Menu */
+/* line 3, ../projetos/animais-fantasticos/scss/_menu.scss */
 .nav {
   grid-column: 2 / 5;
   /* separado em quatro colunas o site, porém para contar vai até 5 pela questão de linha do grid layout, aqui está dizendo que o menu irá usar todas as colunas */
-  background-color: #FB5;
+  background-color: #fb5;
   margin-top: 2rem;
   /* pega a tipografia como base para fazer a margem, por exemplo se o padrão for 16px a distância seria 32px */
   margin-bottom: 2rem;
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 3, ../projetos/animais-fantasticos/scss/_menu.scss */
   .nav {
     grid-column: 1;
     margin-top: 0px;
   }
 }
 
+/* line 16, ../projetos/animais-fantasticos/scss/_menu.scss */
 .nav ul {
   display: flex;
   /* usando flexbox para items ficarem uma ao lado do outro */
@@ -130,6 +158,7 @@ body {
   /* para separar o conteúdo da lista de cima,baixo, esquerda e direita */
 }
 
+/* line 22, ../projetos/animais-fantasticos/scss/_menu.scss */
 .nav li a {
   display: block;
   padding: 10px;
@@ -138,7 +167,7 @@ body {
   /* separando um do outro */
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.125em;
   font-weight: bold;
@@ -146,6 +175,7 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 22, ../projetos/animais-fantasticos/scss/_menu.scss */
   .nav li a {
     margin-right: 5px;
     padding: 5px;
@@ -153,24 +183,27 @@ body {
 }
 
 /* Fim menu */
+/* line 1, ../projetos/animais-fantasticos/scss/_animais.scss */
 .animais h2 {
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.5em;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   margin-bottom: 1rem;
-  color: #E54;
+  color: #e54;
 }
 
+/* line 58, ../projetos/animais-fantasticos/scss/_variaveis-e-mixins.scss */
 .animais h2::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 40px;
   height: 15px;
   margin-right: 15px;
-  background-color: #FB5;
+  background-color: #fb5;
 }
 
+/* line 14, ../projetos/animais-fantasticos/scss/_animais.scss */
 .animais p {
   font-family: Helvetica, arial;
   margin-bottom: 1rem;
@@ -180,10 +213,12 @@ body {
   max-width: 600px;
 }
 
+/* line 17, ../projetos/animais-fantasticos/scss/_animais.scss */
 .animais p:last-child {
   margin-bottom: 0;
 }
 
+/* line 22, ../projetos/animais-fantasticos/scss/_animais.scss */
 .animais-lista {
   height: 370px;
   overflow-y: scroll;
@@ -192,24 +227,28 @@ body {
   /* coluna de 300px, a coluna de 100px é vazia para dar uma diferença nos títulos */
 }
 
+/* line 32, ../projetos/animais-fantasticos/scss/_variaveis-e-mixins.scss */
 .animais-lista::-webkit-scrollbar {
   width: 18px;
   /* largura da scrollbar */
 }
 
+/* line 36, ../projetos/animais-fantasticos/scss/_variaveis-e-mixins.scss */
 .animais-lista::-webkit-scrollbar-thumb {
   /* rolagem usada na scroolbar */
-  background-color: #FB5;
-  border-left: 4px solid #FAF6ED;
-  border-right: 4px solid #FAF6ED;
+  background-color: #fb5;
+  border-left: 4px solid #faf6ed;
+  border-right: 4px solid #faf6ed;
 }
 
+/* line 43, ../projetos/animais-fantasticos/scss/_variaveis-e-mixins.scss */
 .animais-lista::-webkit-scrollbar-track {
   /* cor de fundo da scroolbar */
-  background-color: #FAF6ED;
+  background-color: #faf6ed;
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 22, ../projetos/animais-fantasticos/scss/_animais.scss */
   .animais-lista {
     /* responsivo */
     grid-column: 1;
@@ -217,45 +256,54 @@ body {
   }
 }
 
+/* line 38, ../projetos/animais-fantasticos/scss/_animais.scss */
 .js .animais-lista li {
   cursor: pointer;
 }
 
+/* line 43, ../projetos/animais-fantasticos/scss/_animais.scss */
 .animais-descricao {
   grid-column: 3;
   /* irá ficar na coluna de 1fr */
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 43, ../projetos/animais-fantasticos/scss/_animais.scss */
   .animais-descricao {
     grid-column: 2;
   }
 }
 
+/* line 51, ../projetos/animais-fantasticos/scss/_animais.scss */
 .animais-descricao section {
   margin-bottom: 3rem;
   /* 48px */
 }
 
+/* line 54, ../projetos/animais-fantasticos/scss/_animais.scss */
 .animais-descricao section:last-child {
   margin-bottom: 0;
 }
 
+/* line 60, ../projetos/animais-fantasticos/scss/_animais.scss */
 .js [data-anime="animais-descricao"] section {
   display: none;
 }
 
+/* line 64, ../projetos/animais-fantasticos/scss/_animais.scss */
 .js [data-anime="animais-descricao"] section.ativo {
   display: block !important;
 }
 
+/* line 69, ../projetos/animais-fantasticos/scss/_animais.scss */
 .js [data-anime="animais-descricao"] section.ativo.show-right {
-  animation: show-rigth .5s forwards;
+  animation: show-rigth 0.5s forwards;
   /* chamando a animação e colocando o tempo da animação que é meio segundo e dizendo que a animação deve ficar no estado final e não voltar para o inicial*/
 }
 
+/* line 74, ../projetos/animais-fantasticos/scss/_animais.scss */
 .js [data-anime="animais-descricao"] section.ativo.show-down {
-  animation: show-down .5s forwards;
+  animation: show-down 0.5s forwards;
   /* chamando a animação e colocando o tempo da animação que é meio segundo e dizendo que a animação deve ficar no estado final e não voltar para o inicial*/
 }
 
@@ -281,11 +329,13 @@ body {
   }
 }
 
+/* line 1, ../projetos/animais-fantasticos/scss/_faq.scss */
 .faq-lista {
   grid-column: 2 / 4;
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 1, ../projetos/animais-fantasticos/scss/_faq.scss */
   .faq-lista {
     /* no celular */
     grid-column: 1 / 3;
@@ -293,40 +343,46 @@ body {
   }
 }
 
+/* line 10, ../projetos/animais-fantasticos/scss/_faq.scss */
 .faq-lista dt {
   font-family: "IBM Plex Mono", monospace;
   font-weight: bold;
   font-size: 1.5em;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   /* 8px */
-  color: #E54;
+  color: #e54;
 }
 
+/* line 70, ../projetos/animais-fantasticos/scss/_variaveis-e-mixins.scss */
 .faq-lista dt::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 25px;
   height: 15px;
   margin-right: 15px;
-  background-color: #FB5;
+  background-color: #fb5;
 }
 
+/* line 22, ../projetos/animais-fantasticos/scss/_faq.scss */
 .js .js-faq-lista dt::after {
   margin-left: 10px;
   /* separando os itens */
   /* adicionando a seta após o conteúdo */
-  content: '⮟';
+  content: "⮟";
 }
 
+/* line 29, ../projetos/animais-fantasticos/scss/_faq.scss */
 .js [data-anime="faq"] dt {
   cursor: pointer;
 }
 
+/* line 33, ../projetos/animais-fantasticos/scss/_faq.scss */
 .js [data-anime="faq"] dt.ativo::after {
   /* caso tenha a classe ativo */
-  content: '⮝';
+  content: "⮝";
 }
 
+/* line 38, ../projetos/animais-fantasticos/scss/_faq.scss */
 .faq-lista dd {
   margin-left: 40px;
   font-family: Helvetica, arial;
@@ -337,15 +393,17 @@ body {
   max-width: 600px;
 }
 
+/* line 44, ../projetos/animais-fantasticos/scss/_faq.scss */
 .js [data-anime="faq"] dd {
   display: none;
   /* deixando de exibir o conteúdo */
 }
 
+/* line 48, ../projetos/animais-fantasticos/scss/_faq.scss */
 .js [data-anime="faq"] dd.ativo {
   display: block;
   /* caso tenha a classe ativo, volta a exibir o conteúdo */
-  animation: tabDown .5s forwards;
+  animation: tabDown 0.5s forwards;
 }
 
 @keyframes tabDown {
@@ -357,33 +415,39 @@ body {
   }
 }
 
+/* line 1, ../projetos/animais-fantasticos/scss/_contato.scss */
 .contato-mapa {
   grid-column: 3;
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 1, ../projetos/animais-fantasticos/scss/_contato.scss */
   .contato-mapa {
     grid-column: 1 / 3;
     /* irá pegar as duas colunas */
   }
 }
 
+/* line 9, ../projetos/animais-fantasticos/scss/_contato.scss */
 .contato-mapa img {
   max-width: 700px;
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 9, ../projetos/animais-fantasticos/scss/_contato.scss */
   .contato-mapa img {
     max-width: 100%;
     /* para não gerar barra na horizontal */
   }
 }
 
+/* line 17, ../projetos/animais-fantasticos/scss/_contato.scss */
 .contato-dados {
   grid-column: 2;
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 17, ../projetos/animais-fantasticos/scss/_contato.scss */
   .contato-dados {
     margin-top: 1rem;
     grid-column: 1 / 3;
@@ -391,6 +455,7 @@ body {
   }
 }
 
+/* line 26, ../projetos/animais-fantasticos/scss/_contato.scss */
 .contato-dados li {
   font-family: Helvetica, arial;
   margin-bottom: 1rem;
@@ -398,47 +463,54 @@ body {
   font-size: 1.125em;
 }
 
+/* line 70, ../projetos/animais-fantasticos/scss/_variaveis-e-mixins.scss */
 .contato-dados li::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 25px;
   height: 15px;
   margin-right: 15px;
-  background-color: #FB5;
+  background-color: #fb5;
 }
 
+/* line 34, ../projetos/animais-fantasticos/scss/_contato.scss */
 .contato-dados li a {
   color: #222;
 }
 
+/* line 37, ../projetos/animais-fantasticos/scss/_contato.scss */
 .contato-dados li a:hover {
   transition: ease-in 0.3s;
-  color: #E54;
+  color: #e54;
 }
 
+/* line 43, ../projetos/animais-fantasticos/scss/_contato.scss */
 .contato-doe {
-  background-color: #E54;
+  background-color: #e54;
   padding: 0.5rem;
   font-weight: bold;
   border-radius: 4px;
 }
 
+/* line 1, ../projetos/animais-fantasticos/scss/_rodape.scss */
 .rodape {
   grid-column: 2 / 5;
   /* para ficar alinhado ao menu */
-  background-color: #FB5;
+  background-color: #fb5;
   margin-top: 2rem;
   /* pega a tipografia como base para fazer a margem, por exemplo se o padrão for 16px a distância seria 32px */
   margin-bottom: 2rem;
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 1, ../projetos/animais-fantasticos/scss/_rodape.scss */
   .rodape {
     grid-column: 1;
     margin-bottom: 0px;
   }
 }
 
+/* line 14, ../projetos/animais-fantasticos/scss/_rodape.scss */
 .rodape p {
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.125em;
@@ -447,6 +519,7 @@ body {
   padding: 20px;
 }
 
+/* line 1, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-container {
   width: 100vw;
   /* vw 100 que é o 100% da largura */
@@ -467,16 +540,18 @@ body {
   /* alinhando na vertical ao centro */
 }
 
+/* line 14, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-container.ativo {
   /* quando tiver a classe ativo será display flex */
   display: flex;
 }
 
+/* line 19, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-form {
   padding: 40px;
-  background-color: #FAF6ED;
-  border: 6px solid #FB5;
-  box-shadow: 0 0 0 6px #fff, 0 0 0 8px #FB5;
+  background-color: #faf6ed;
+  border: 6px solid #fb5;
+  box-shadow: 0 0 0 6px #fff, 0 0 0 8px #fb5;
   position: relative;
   /* para que o x seja posicionado em referência a esse elemento */
   min-width: 500px;
@@ -493,11 +568,13 @@ body {
   }
 }
 
+/* line 40, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-container.ativo .modal-form {
-  animation: modal .5s forwards;
+  animation: modal 0.5s forwards;
   /* forwards é que deve permanecer no estado final a animação */
 }
 
+/* line 44, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-fechar {
   position: absolute;
   /* posição absoluta em relação ao pai, o modal-form */
@@ -510,23 +587,25 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid #E54;
+  border: 2px solid #e54;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
-  background-color: #FAF6ED;
+  background-color: #faf6ed;
   cursor: pointer;
   outline: none;
   /* tirando azul que fica quando clicado no botão*/
 }
 
+/* line 62, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-form label {
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.125em;
   font-weight: bold;
   color: #222;
   display: block;
-  margin: 1rem 0 .5rem 0;
+  margin: 1rem 0 0.5rem 0;
 }
 
+/* line 68, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-form input {
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.125em;
@@ -535,11 +614,12 @@ body {
   color: normal;
   font-weight: normal;
   outline: none;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   width: 100%;
-  padding: .6rem;
+  padding: 0.6rem;
 }
 
+/* line 78, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-form button[type="submit"] {
   display: block;
   border: none;
@@ -547,19 +627,20 @@ body {
   padding: 1rem 2rem;
   color: #222;
   font-family: "IBM Plex Mono", monospace;
-  background-color: #FB5;
+  background-color: #fb5;
   font-size: 1.2rem;
   margin-top: 1rem;
   cursor: pointer;
   outline: none;
 }
 
+/* line 1, ../projetos/animais-fantasticos/scss/_tooltip.scss */
 .tooltip {
   position: absolute;
   z-index: 20;
   background: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 0 2px #FB5, 0 0 0 6px rgba(0, 0, 0, 0.6);
-  padding: .5rem;
+  box-shadow: 0 0 0 2px #fb5, 0 0 0 6px rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
   color: #fff;
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.125em;
@@ -569,23 +650,27 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 1, ../projetos/animais-fantasticos/scss/_tooltip.scss */
   .tooltip {
     display: none;
   }
 }
 
+/* line 1, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
 [data-dropdown="menu"] {
   position: relative;
 }
 
+/* line 5, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
 [data-dropdown="menu"] .dropdown-menu {
   display: none;
 }
 
+/* line 9, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
 [data-dropdown="menu"]:hover .dropdown-menu,
 [data-dropdown="menu"].ativo .dropdown-menu {
   display: block;
-  animation: subindo .5s forwards;
+  animation: subindo 0.5s forwards;
 }
 
 @keyframes subindo {
@@ -599,17 +684,19 @@ body {
   }
 }
 
+/* line 26, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
 .dropdown-menu {
   position: absolute;
   z-index: 30;
-  border: 2px solid #E54;
-  background-color: #FAF6ED;
+  border: 2px solid #e54;
+  background-color: #faf6ed;
   border-radius: 4px;
   top: 38px;
 }
 
+/* line 34, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
 .dropdown-menu::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   height: 0;
@@ -617,18 +704,21 @@ body {
   top: -10px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #FAF6ED;
+  border-bottom: 10px solid #faf6ed;
 }
 
+/* line 49, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
 .dropdown-menu li a:hover {
-  color: #E54;
+  color: #e54;
 }
 
+/* line 1, ../projetos/animais-fantasticos/scss/_menu-mobile.scss */
 .menu-hamburguer {
   display: none;
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 5, ../projetos/animais-fantasticos/scss/_menu-mobile.scss */
   .js .menu-hamburguer {
     display: flex;
     align-items: center;
@@ -642,25 +732,28 @@ body {
     position: relative;
     outline: none;
   }
+  /* line 20, ../projetos/animais-fantasticos/scss/_menu-mobile.scss */
   .js .menu-hamburguer::before {
-    content: '';
+    content: "";
     display: inline-block;
     height: 4px;
     width: 25px;
-    background-color: #FB5;
-    box-shadow: 0 8px #FB5, 0 -8px #FB5;
-    transition: transform .5s;
+    background-color: #fb5;
+    box-shadow: 0 8px #fb5, 0 -8px #fb5;
+    transition: transform 0.5s;
   }
 }
 
+/* line 36, ../projetos/animais-fantasticos/scss/_menu-mobile.scss */
 .js .menu-hamburguer.ativo::before {
   transform: rotate(90deg);
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 41, ../projetos/animais-fantasticos/scss/_menu-mobile.scss */
   .js .menu-list {
     position: absolute;
-    background-color: #FB5;
+    background-color: #fb5;
     display: none;
     z-index: 200;
     width: 190px;
@@ -671,19 +764,22 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 55, ../projetos/animais-fantasticos/scss/_menu-mobile.scss */
   .js .menu-list.ativo {
     display: block;
-    animation: show-down .5s forwards;
+    animation: show-down 0.5s forwards;
   }
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 62, ../projetos/animais-fantasticos/scss/_menu-mobile.scss */
   .js .dropdown-menu {
     position: static;
     border: none;
   }
 }
 
+/* line 1, ../projetos/animais-fantasticos/scss/_numeros.scss */
 .quantidade-grid {
   grid-column: 2 / 4;
   display: grid;
@@ -692,27 +788,31 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+  /* line 1, ../projetos/animais-fantasticos/scss/_numeros.scss */
   .quantidade-grid {
     grid-column: 1;
   }
 }
 
+/* line 13, ../projetos/animais-fantasticos/scss/_numeros.scss */
 .quantidade-animal h2 {
   font-size: 2.5em;
   font-family: "Playfair Display SC", georgia;
   font-weight: normal;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
+/* line 20, ../projetos/animais-fantasticos/scss/_numeros.scss */
 .quantidade-animal span {
   font-family: "IBM Plex Mono", monospace;
   font-weight: bold;
   font-size: 1.5em;
-  color: #E54;
+  color: #e54;
 }
 
+/* line 1, ../projetos/animais-fantasticos/scss/_horario.scss */
 .js .horario::after {
-  content: '';
+  content: "";
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -721,10 +821,14 @@ body {
   margin-left: 6px;
 }
 
+/* line 11, ../projetos/animais-fantasticos/scss/_horario.scss */
 .js .horario.fechado::after {
-  background-color: #E54;
+  background-color: #e54;
 }
 
+/* line 15, ../projetos/animais-fantasticos/scss/_horario.scss */
 .js .horario.aberto::after {
-  background-color: #32CD32;
+  background-color: #32cd32;
 }
+
+/*# sourceMappingURL=style.css.map */
