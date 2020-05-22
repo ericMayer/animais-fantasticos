@@ -1,43 +1,62 @@
-export default function initModal() {
-  const login = document.querySelector('[data-modal="login"');
-  const fechar = document.querySelector('[data-modal="fechar"');
-  const container = document.querySelector('[data-modal="container"]');
-  const button = document.querySelector('[data-modal="button"]');
+export default class Modal {
+  constructor(login, fechar, container, button, eventos) {
+    // selecionando elementos do modal
+    this.login = document.querySelector(login);
+    this.fechar = document.querySelector(fechar);
+    this.container = document.querySelector(container);
+    this.button = document.querySelector(button);
+    this.eventos = eventos;
 
-  const eventos = ["click", "touchstart"];
+    // alterando this do toogle ativo para referenciar a classe
+    this.toogleEvent = this.toogleEvent.bind(this);
 
-  const toggleAtivo = (event) => {
+    // alterando referência do this do elemento clicado para a referência da classe
+    this.clicouFora = this.clicouFora.bind(this);
+  }
+
+  toggleAtivo() {
+    this.container.classList.toggle("ativo"); // adicionando classe ativo para animar e aparecer a tela de login, caso não exista, se existir será removida
+  }
+
+  toogleEvent(event) {
     event.preventDefault(); // prevenindo padrão, assim não irá tentar abrir o link
-    container.classList.toggle("ativo"); // adicionando classe ativo para animar e aparecer a tela de login, caso não exista, se existir será removida
-  };
+    this.toggleAtivo(); // chamado método responsável por adicionar classe ativo no modal
+  }
 
-  const clicouFora = (event) => {
-    if (event.target === this) {
-      toggleAtivo(event); // chamado função que remove a classe ativo
+  clicouFora(event) {
+    if (event.target === this.container) {
+      this.toggleAtivo(); // chamado função que remove a classe ativo, toogle remove, porquê para primeiro abrir o modal é necessário adicionar a classe, então quando chamado o método de novo irá remover a classe já adicionada
     }
-  };
+  }
 
-  if (login && fechar && container) {
-    // se login for uma expressão verdadeira não for por exemplo uma string vazia, irá executar o código abaixo, isso serve para garantir que no login realmente têm algo
+  addEvent() {
     // quando clicado no link de login irá chamar a função ativo
-    eventos.forEach((evento) => {
-      login.addEventListener(evento, toggleAtivo);
+    this.eventos.forEach((evento) => {
+      this.login.addEventListener(evento, this.toogleEvent);
     });
 
     // quando clicado no botão de fechar será chamado a função remover
-    eventos.forEach((evento) => {
-      fechar.addEventListener(evento, toggleAtivo);
+    this.eventos.forEach((evento) => {
+      this.fechar.addEventListener(evento, this.toogleEvent);
     });
 
     // quando clicado fora do modal será chamado a função clicouFora
-    eventos.forEach((evento) => {
-      container.addEventListener(evento, clicouFora);
+    this.eventos.forEach((evento) => {
+      this.container.addEventListener(evento, this.clicouFora);
     });
 
-    eventos.forEach((evento) => {
-      button.addEventListener(evento, (event) => {
+    // quando clicado botão login será prevenido o padrão para não dar erro
+    this.eventos.forEach((evento) => {
+      this.button.addEventListener(evento, (event) => {
         event.preventDefault();
       });
     });
+  }
+
+  iniciar() {
+    if (this.login && this.fechar && this.container && this.button) {
+      this.addEvent(); // iniciando eventos
+    }
+    return this; // retornando this para não ser undefined e ser possível encadeiar funções com .
   }
 }
