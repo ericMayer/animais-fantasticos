@@ -3,8 +3,12 @@
 // Importando modules
 
 import nav from "./modules/nav-link-interno.js";
+
+import NavListaAnimais from "./modules/animais-conteudo.js";
+
 import animais from "./modules/animais-conteudo.js";
 import FaqAccordion from "./modules/faq-lista.js";
+
 import scroll from "./modules/scroll-conteudo.js";
 
 import TooltipInfo from "./modules/tooltip.js";
@@ -21,7 +25,13 @@ import bitcoin from "./modules/bitcoin-fetch.js";
 const eventos = ["click", "touchstart"];
 
 nav();
-animais();
+
+const animais = new NavListaAnimais(
+  '[data-anime="animais-lista"] li',
+  '[data-anime="animais-descricao"] section',
+  ["click", "touchstart"]
+);
+animais.iniciar();
 
 const faq = new FaqAccordion('[data-anime="faq"] dt', eventos);
 faq.iniciar();
