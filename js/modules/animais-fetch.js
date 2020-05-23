@@ -18,7 +18,14 @@ export default function animaisFetch(element, url) {
   };
 
   const animaAnimais = () => {
-    initNumeros(); // iniciando animação dos números depois de pegar do arquivo json
+    const numeros = new AnimacaoNumeros(
+      '[data-numero="quantidade"]',
+      "ativo",
+      ".quantidade"
+    );
+
+    // iniciando animação dos números depois de pegar do arquivo json
+    numeros.iniciar();
   };
 
   const pegaDados = async () => {
@@ -30,15 +37,7 @@ export default function animaisFetch(element, url) {
       animais.forEach((animal) => {
         adicionaAnimal(animal);
       });
-
-      const numeros = new AnimacaoNumeros(
-        '[data-numero="quantidade"]',
-        "ativo",
-        ".quantidade"
-      );
-
-      // iniciando animação dos números depois de pegar do arquivo json
-      numeros.iniciar();
+      animaAnimais(); // chamando função responsável por fazer a animação
     } catch (erro) {
       console.log(Error(erro));
     }
