@@ -1,9 +1,9 @@
-export default function bitcoin() {
-  const spanBitcoin = document.querySelector('[data-bitcoin="doacao"]');
+export default function bitcoin(url, element) {
+  const spanBitcoin = document.querySelector(element);
 
   // será utilizado uma api de bitcoin para pegar o valor real de compra em bitcoin em BRL é exibir no navegador, a quantidade que desejamos que seja doada
 
-  async function valor(url) {
+  async function valor() {
     try {
       const preco = await (await fetch(url)).json();
 
@@ -14,6 +14,6 @@ export default function bitcoin() {
   }
 
   if (spanBitcoin) {
-    valor("https://blockchain.info/ticker");
+    valor(url);
   }
 }
