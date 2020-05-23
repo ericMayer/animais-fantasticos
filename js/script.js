@@ -8,7 +8,7 @@ import NavListaAnimais from "./modules/animais-conteudo.js";
 
 import FaqAccordion from "./modules/faq-lista.js";
 
-import scroll from "./modules/scroll-conteudo.js";
+import ScrollConteudo from "./modules/scroll-conteudo.js";
 
 import TooltipInfo from "./modules/tooltip.js";
 
@@ -41,7 +41,8 @@ animais.iniciar();
 const faq = new FaqAccordion('[data-anime="faq"] dt', eventos);
 faq.iniciar();
 
-scroll();
+const scroll = new ScrollConteudo('[data-anime="conteudo"]');
+scroll.iniciar();
 
 const tooltip = new TooltipInfo('[data-tooltip="informacao"]');
 tooltip.iniciar();
