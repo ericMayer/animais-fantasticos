@@ -1,4 +1,4 @@
-import initNumeros from "./numeros.js";
+import AnimacaoNumeros from "./numeros.js";
 
 export default function animaisFetch() {
   const quantidade = document.querySelector(".quantidade-grid");
@@ -21,7 +21,14 @@ export default function animaisFetch() {
         quantidade.appendChild(div);
       });
 
-      initNumeros(); // iniciando animação dos números depois de pegar do arquivo json
+      const numeros = new AnimacaoNumeros(
+        '[data-numero="quantidade"]',
+        "ativo",
+        ".quantidade"
+      );
+
+      // iniciando animação dos números depois de pegar do arquivo json
+      numeros.iniciar();
     } catch (erro) {
       console.log(Error(erro));
     }
