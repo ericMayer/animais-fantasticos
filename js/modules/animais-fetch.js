@@ -1,4 +1,4 @@
-import initNumeros from "./numeros.js";
+import AnimacaoNumeros from "./numeros.js";
 
 export default function animaisFetch(element, url) {
   const quantidade = document.querySelector(element);
@@ -30,8 +30,15 @@ export default function animaisFetch(element, url) {
       animais.forEach((animal) => {
         adicionaAnimal(animal);
       });
-      // chamando função responsável por chamar a animação dos números
-      animaAnimais();
+
+      const numeros = new AnimacaoNumeros(
+        '[data-numero="quantidade"]',
+        "ativo",
+        ".quantidade"
+      );
+
+      // iniciando animação dos números depois de pegar do arquivo json
+      numeros.iniciar();
     } catch (erro) {
       console.log(Error(erro));
     }
