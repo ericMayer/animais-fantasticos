@@ -17,7 +17,9 @@ import Modal from "./modules/modal.js";
 import dropdown from "./modules/dropdown-menu.js";
 import menuMobile from "./modules/menu-mobile.js";
 import aberto from "./modules/horario.js";
+
 import animaisFetch from "./modules/animais-fetch.js";
+
 import bitcoin from "./modules/bitcoin-fetch.js";
 
 // Execução incial das funções
@@ -57,5 +59,7 @@ modal.iniciar();
 dropdown();
 menuMobile();
 aberto();
-animaisFetch();
-bitcoin();
+
+bitcoin("https://blockchain.info/ticker", '[data-bitcoin="doacao"]');
+
+animaisFetch(".quantidade-grid", "../../json/animais-api.json");
