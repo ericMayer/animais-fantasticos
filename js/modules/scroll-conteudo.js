@@ -1,10 +1,13 @@
+import debounceScroll from "./debounce.js";
+
 export default class ScrollConteudo {
   // função para adicionar a classe css que será responsável por fazer a animação do texto, conforme for descendo o conteúdo pelo scroll
 
   constructor(sections) {
     this.sections = document.querySelectorAll(sections);
     this.metade = window.innerHeight * 0.6; // calculando 70 % da tela
-    this.anima = this.anima.bind(this); // alterando referência
+
+    this.anima = debounceScroll(this.anima.bind(this), 50); // alterando referência
   }
 
   // método responsável por pegar a distância do top
