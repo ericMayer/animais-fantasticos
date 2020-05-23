@@ -59,6 +59,6 @@ dropdown();
 menuMobile();
 aberto();
 
-animaisFetch(".quantidade-grid", "../../json/animais-api.json");
+bitcoin("https://blockchain.info/ticker", '[data-bitcoin="doacao"]');
 
-bitcoin();
+animaisFetch(".quantidade-grid", "../../json/animais-api.json");
