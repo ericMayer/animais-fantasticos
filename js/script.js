@@ -58,5 +58,7 @@ modal.iniciar();
 dropdown();
 menuMobile();
 aberto();
-animaisFetch();
+
+animaisFetch(".quantidade-grid", "../../json/animais-api.json");
+
 bitcoin();
