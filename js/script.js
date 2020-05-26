@@ -16,7 +16,8 @@ import Modal from "./modules/modal.js";
 
 import dropdown from "./modules/dropdown-menu.js";
 import menuMobile from "./modules/menu-mobile.js";
-import aberto from "./modules/horario.js";
+
+import HorarioFuncionamento from "./modules/horario.js";
 
 import animaisFetch from "./modules/animais-fetch.js";
 
@@ -58,7 +59,9 @@ modal.iniciar();
 
 dropdown();
 menuMobile();
-aberto();
+
+const aberto = new HorarioFuncionamento("[data-semana]");
+aberto.iniciar();
 
 bitcoin("https://blockchain.info/ticker", '[data-bitcoin="doacao"]');
 
