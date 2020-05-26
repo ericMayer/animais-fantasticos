@@ -15,7 +15,9 @@ import TooltipInfo from "./modules/tooltip.js";
 import Modal from "./modules/modal.js";
 
 import dropdown from "./modules/dropdown-menu.js";
-import menuMobile from "./modules/menu-mobile.js";
+
+import MenuMobile from "./modules/menu-mobile.js";
+
 import aberto from "./modules/horario.js";
 
 import animaisFetch from "./modules/animais-fetch.js";
@@ -57,7 +59,10 @@ const modal = new Modal(
 modal.iniciar();
 
 dropdown();
-menuMobile();
+
+const menuMobile = new MenuMobile('[data-menu="mobile', '[data-menu="list"');
+menuMobile.iniciar();
+
 aberto();
 
 bitcoin("https://blockchain.info/ticker", '[data-bitcoin="doacao"]');
