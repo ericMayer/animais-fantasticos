@@ -41,5 +41,6 @@ export default class NavListaAnimais {
       this.ativou(0); // ativando o primeiro item
       this.addEvent();
     }
+    return this;
   }
 }

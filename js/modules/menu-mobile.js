@@ -1,25 +1,54 @@
 import fora from "./clique-fora.js";
 
-export default function menuMobile() {
-  const menuCelular = document.querySelector('[data-menu="mobile');
-  const menuList = document.querySelector('[data-menu="list"');
-  const eventos = ["touchstart", "click"];
+export default class MenuMobile {
+  constructor(menuCelular, menuList, eventos) {
+    this.menuCelular = document.querySelector(menuCelular);
+    this.menuList = document.querySelector(menuList);
 
-  const abrirMenu = () => {
-    menuCelular.classList.toggle("ativo");
-    menuList.classList.toggle("ativo");
+    // se eventos não for passado nada, usará o valor padrão
+    if (eventos === undefined) {
+      this.eventos = ["touchstart", "click"];
+    } else {
+      this.eventos = eventos;
+    }
 
-    fora(menuList, () => {
+    // alterando referência do this para a referência da classe
+    this.abrirMenu = this.abrirMenu.bind(this);
+  }
+
+  // quando for clicado no menu
+  // irá adicionar a classe ativo,
+  // caso já exista, será removida
+  // depois será usado a função que
+  // irá remover a da classe ativo,
+  // quando for clicado fora
+  abrirMenu() {
+    this.menuCelular.classList.toggle("ativo");
+    this.menuList.classList.toggle("ativo");
+
+    fora(this.menuList, () => {
       // quando for clicado fora do menuList será removido as classes
-      menuCelular.classList.remove("ativo");
-      menuList.classList.remove("ativo");
+      this.menuCelular.classList.remove("ativo");
+      this.menuList.classList.remove("ativo");
     });
-  };
+  }
 
-  if (menuCelular) {
-    eventos.forEach((evento) => {
+  // adicionando eventos
+  addEvent() {
+    this.eventos.forEach((evento) => {
       // adicionando eventos ao menuCelular
-      menuCelular.addEventListener(evento, abrirMenu);
+      this.menuCelular.addEventListener(evento, this.abrirMenu);
     });
+  }
+
+  // chamando método que adiciona eventos,
+  // caso seja verdadeiro o if
+  // depois é retornado o this, para ser possível usar
+  // outro método depois do this
+  iniciar() {
+    if (this.menuCelular && this.menuList) {
+      this.addEvent();
+    }
+    return this;
   }
 }
