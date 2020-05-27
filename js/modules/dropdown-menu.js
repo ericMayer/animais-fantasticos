@@ -1,26 +1,48 @@
 import fora from "./clique-fora.js";
 
-export default function dropdown() {
-  const submenu = document.querySelectorAll('[data-dropdown="menu"');
-  const eventos = ["touchstart", "click"];
+export default class DropdownMenu {
+  constructor(submenu, eventos) {
+    this.submenu = document.querySelectorAll(submenu);
 
-  const ativo = (event, element) => {
+    // caso não for passado nenhum valor para eventos
+    // irá definir o valor padrão
+    if (eventos === undefined) {
+      this.eventos = ["touchstart", "click"];
+    } else {
+      this.eventos = eventos;
+    }
+
+    this.ativo = "ativo";
+
+    // alterando referência do objeto para a classe
+    this.submenuAtivo = this.submenuAtivo.bind(this);
+  }
+
+  submenuAtivo(event) {
     event.preventDefault();
+    const element = event.currentTarget;
 
-    element.classList.toggle("ativo"); // adicionando classe ativo ao item clicado
+    element.classList.toggle(this.ativo); // adicionando classe ativo ao item clicado
 
     fora(element, () => {
-      element.classList.remove("ativo"); // remove a classe ativo, quando clicado fora
+      element.classList.remove(this.ativo); // remove a classe ativo, quando clicado fora
     });
-  };
+  }
 
-  submenu.forEach((item) => {
-    // o evento de click no browser do celular demora muito para acontecer, por isso será usado outro evento touchstart, que ocorre na hora que clicar
+  addEvent() {
+    this.submenu.forEach((item) => {
+      // o evento de click no browser do celular demora muito para acontecer, por isso será usado outro evento touchstart, que ocorre na hora que clicar
 
-    eventos.forEach((evento) => {
-      item.addEventListener(evento, (event) => {
-        ativo(event, item);
+      this.eventos.forEach((evento) => {
+        item.addEventListener(evento, this.submenuAtivo);
       });
     });
-  });
+  }
+
+  iniciar() {
+    if (this.submenu.length) {
+      this.addEvent();
+    }
+    return this;
+  }
 }

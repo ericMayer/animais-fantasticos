@@ -14,9 +14,9 @@ import TooltipInfo from "./modules/tooltip.js";
 
 import Modal from "./modules/modal.js";
 
-import dropdown from "./modules/dropdown-menu.js";
-
 import MenuMobile from "./modules/menu-mobile.js";
+
+import DropdownMenu from "./modules/dropdown-menu.js";
 
 import aberto from "./modules/horario.js";
 
@@ -58,10 +58,11 @@ const modal = new Modal(
 );
 modal.iniciar();
 
-dropdown();
-
 const menuMobile = new MenuMobile('[data-menu="mobile', '[data-menu="list"');
 menuMobile.iniciar();
+
+const dropdown = new DropdownMenu('[data-dropdown="menu"');
+dropdown.iniciar();
 
 aberto();
 
