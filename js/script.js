@@ -14,11 +14,11 @@ import TooltipInfo from "./modules/tooltip.js";
 
 import Modal from "./modules/modal.js";
 
+import HorarioFuncionamento from "./modules/horario.js";
+
 import MenuMobile from "./modules/menu-mobile.js";
 
 import DropdownMenu from "./modules/dropdown-menu.js";
-
-import aberto from "./modules/horario.js";
 
 import animaisFetch from "./modules/animais-fetch.js";
 
@@ -58,13 +58,14 @@ const modal = new Modal(
 );
 modal.iniciar();
 
+const aberto = new HorarioFuncionamento("[data-semana]");
+aberto.iniciar();
+
 const menuMobile = new MenuMobile('[data-menu="mobile', '[data-menu="list"');
 menuMobile.iniciar();
 
 const dropdown = new DropdownMenu('[data-dropdown="menu"');
 dropdown.iniciar();
-
-aberto();
 
 bitcoin("https://blockchain.info/ticker", '[data-bitcoin="doacao"]');
 
