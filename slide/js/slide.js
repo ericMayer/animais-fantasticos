@@ -165,10 +165,96 @@ export default class Slide {
     // --------- Fim de Adicionar Eventos de Touch ------------------- //
   }
 
+  // ----------- Configurações do Slide ----------------------------- //
+
+  // irá pegar a margem é fazer a subtração
+  // do elemento em si para que quando houver
+  // a troca de slide a imagem fique centralizada
+  // de acordo com a tela
+  marginSlide(slide) {
+    // pegando a largura total do container que é onde a lista
+    // de slide está dentro e diminuindo pelo tamanho do slide
+    // dividindo esse resultado por 2, pois assim
+    // teremos as margens que estão sendo usadas no lado esquerdo
+    // e direito, na vdd teremos apenas uma margem,
+    // pois está sendo divido por dois, porém como começa
+    // na esquerda, é necessário apenas uma margem
+    // para ficar no centro, a outra margem irá ser aplicada
+    // automaticamente
+
+    const margin = (this.container.offsetWidth - slide.offsetWidth) / 2;
+
+    // pegando a posição do slide em relação a esquerda
+    // é subtraindo pela margem
+    // pois assim o slide ficará centralizado
+    // é passado o valor como negativo
+    // para seguir a ordem natural do slide
+    // para  direita, se fosse positivo,
+    // seria o contrário
+    return -(slide.offsetLeft - margin);
+  }
+
+  // irá pegar o elemento que seria a imagem do slide que está
+  // é a posição dele para quando for feita a mudança
+  // colocar na posicação correta
+  config() {
+    // desestruturando os filhos da ul
+    // e criando uma nova lista
+    // com o retorno do map que é
+    // o elemento (li) e a posição
+    // na tela do elemento
+    this.slideArray = [...this.slide.children].map((element) => {
+      return {
+        element,
+        posicao: this.marginSlide(element),
+      };
+    });
+  }
+
+  // método responsável por pegar os itens
+  // de navegação do slide que seriam
+  // atual, anterior e próximo, será
+  // pego esses valores de acordo com o index passado
+  slideMenu(index) {
+    // pegando o index do último slide
+    const lastSlide = this.slideArray.length - 1;
+
+    this.index = {
+      anterior: index ? index - 1 : undefined,
+      atual: index,
+      proximo: index === lastSlide ? undefined : index + 1,
+    };
+    return this.index;
+  }
+
+  // método responsável pela troca de slide
+  // de acordo com o index recebido
+  trocaSlide(index) {
+    this.moveSlide(this.slideArray[index].posicao);
+
+    // toda vez que houver troca de slide,
+    // será atualizado o index do slide
+    // que têm o slide anterior, atual e próximo
+    this.slideMenu(index);
+
+    // atualizando a posição final
+    // onde foi movido o slide
+    // caso isso não seja feito,
+    // quando for fazer a troca do slide irá pegar
+    // a posição inicial é voltará para o começo,
+    // atualizando a posição a navegação do slide
+    // irá continuar sem problemas
+    this.move.posicaoFinal = this.slideArray[index].posicao;
+  }
+
+  // ----------- Fim Configurações do Slide ----------------------------- //
+
   // iniciando métodos para funcionamento da classe
   iniciar() {
     this.referencias();
     this.addEvents();
+
+    this.config();
     return this;
   }
 }
