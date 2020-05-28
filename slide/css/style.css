@@ -1,0 +1,32 @@
+body,
+ul,
+img {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container-slide {
+  /* quando for estourado o container
+  será escondido o conteúdo que está
+  estourando o container */
+  overflow: hidden;
+}
+
+.slide {
+  display: flex;
+}
+
+.slide li {
+  flex: 1 0 60vw; /* definindo shrink como 0 para não encolher e a base como 60% da largura da tela */
+  max-width: 600px;
+  margin: 0 20px;
+}
