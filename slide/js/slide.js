@@ -5,6 +5,13 @@ export default class Slide {
     this.container = document.querySelector(container);
     this.slide = document.querySelector(slide);
 
+    // criando um evento novo
+    // que será ativado cada vez que houver
+    // a troca de slide, assim
+    // é possível alterar o menu de paginação
+    // de acordo com a mudança
+    this.changeSlide = new Event("changeSlide");
+
     // objeto onde será armazenado
     // os dados do movimento que foi realizado
     // a posição final e inicial, qual o valor
@@ -111,7 +118,6 @@ export default class Slide {
   // para ficar mais fluido a mudança
   resize() {
     setTimeout(() => {
-      console.log("teste");
       // atualizando as configurações do slide
       // posição e fazendo a troca de slide,
       // porém mantendo o slide atual
@@ -255,6 +261,10 @@ export default class Slide {
     // método que adiciona a classe ativo
     // ao slide atual
     this.ativo();
+
+    // acionando o evento criado, toda vez
+    // que mudar de slide
+    this.container.dispatchEvent(this.changeSlide);
   }
 
   // Verifica se o slide anterior existe

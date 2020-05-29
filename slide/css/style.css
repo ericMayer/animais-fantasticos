@@ -19,12 +19,11 @@ img {
   será escondido o conteúdo que está
   estourando o container */
   overflow: hidden;
-
-  cursor: grab;
 }
 
 .slide {
   display: flex;
+  cursor: grab;
 }
 
 .slide:hover {
@@ -50,4 +49,29 @@ img {
   opacity: 1;
   /* tamanho que deverá aparecer 100% */
   transform: scale(1);
+}
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.paginacao li a {
+  display: block;
+
+  text-decoration: none;
+  width: 24px;
+  height: 24px;
+  background-color: #fb5;
+  overflow: hidden; /* para esconder o texto */
+  text-indent: 999px; /* para o texto não ficar vísivel */
+
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.paginacao li a:hover,
+.paginacao li.ativo a {
+  background-color: #e54;
 }
