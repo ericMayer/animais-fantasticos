@@ -306,6 +306,9 @@ export default class Slide {
     this.touchMove = this.touchMove.bind(this);
     this.touchEnd = this.touchEnd.bind(this);
 
+    this.proximoSlide = this.proximoSlide.bind(this);
+    this.slideAnterior = this.slideAnterior.bind(this);
+
     // utilizado debounce para que não seja executado
     // o evento muitas vezes
     this.resize = debounceScroll(this.resize.bind(this), 200);
@@ -333,7 +336,11 @@ export default class Slide {
     this.referencias();
     this.addEvents();
 
+    // pega os itens do slide e a posição
     this.config();
+
+    // dizendo que slide irá começar do primeiro
+    this.trocaSlide(0);
     return this;
   }
 }

@@ -1,5 +1,5 @@
-import Slide from "./slide.js";
+import Nav from "./slide-nav.js";
 
-const slide = new Slide('[data-slide="container"]', '[data-slide="slide"]');
+const slide = new Nav('[data-slide="container"]', '[data-slide="slide"]');
 slide.iniciar();
-slide.trocaSlide(3);
+slide.opcoes('[data-slide="anterior"]', '[data-slide="proximo"');
