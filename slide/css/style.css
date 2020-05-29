@@ -19,11 +19,11 @@ img {
   será escondido o conteúdo que está
   estourando o container */
   overflow: hidden;
+  cursor: grab;
 }
 
 .slide {
   display: flex;
-  cursor: grab;
 }
 
 .slide:hover {
@@ -74,4 +74,55 @@ img {
 .paginacao li a:hover,
 .paginacao li.ativo a {
   background-color: #e54;
+}
+
+.paginacao-personalizada ul {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.paginacao-personalizada li {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+
+  overflow: hidden; /* para esconder o texto */
+
+  opacity: 0.8;
+  transform: scale(0.8);
+
+  border-radius: 50%;
+  margin: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+
+  transition: 0.3s;
+}
+
+.paginacao-personalizada li:hover,
+.paginacao-personalizada li.ativo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-slide {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0 20px 0;
+}
+
+.nav-slide button {
+  cursor: pointer;
+  border: none;
+  text-decoration: -22999px;
+  background: #fb5 url("../img/arrow.svg") center center no-repeat;
+  border-radius: 4px;
+  width: 50px;
+  height: 50px;
+}
+
+.nav-slide .anterior {
+  transform: rotate(180deg);
 }
