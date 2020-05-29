@@ -103,6 +103,23 @@ export default class Slide {
     this.changeSlideEnd();
   }
 
+  // toda vez que for feito o resize da tela
+  // será chamado o método para atualizar
+  // as informações de config relacionado a
+  // posição e manter no slide atual
+  // será feito após 50 milesegundos
+  // para ficar mais fluido a mudança
+  resize() {
+    setTimeout(() => {
+      console.log("teste");
+      // atualizando as configurações do slide
+      // posição e fazendo a troca de slide,
+      // porém mantendo o slide atual
+      this.config();
+      this.trocaSlide(this.index.atual);
+    }, 50);
+  }
+
   // -------------- Fim Eventos de Click e Touch -----------------//
 
   // -------------- Lógica de movimentação do Slide ----------------- //
@@ -154,41 +171,6 @@ export default class Slide {
       this.trocaSlide(this.index.atual);
     }
   }
-
-  // efeito de transição
-  // na troca de slide
-  transition(ativo) {
-    this.slide.style.transition = ativo ? "transform .3s" : "";
-  }
-
-  // -------------- Fim Lógica de movimentação do Slide ----------------- //
-
-  // alterando referências dos this dos eventos
-  referencias() {
-    this.mouseDown = this.mouseDown.bind(this);
-    this.mouseMove = this.mouseMove.bind(this);
-    this.mouseUp = this.mouseUp.bind(this);
-
-    this.touchStart = this.touchStart.bind(this);
-    this.touchMove = this.touchMove.bind(this);
-    this.touchEnd = this.touchEnd.bind(this);
-  }
-
-  addEvents() {
-    // evento de click e arrastar do mouse
-    this.container.addEventListener("mousedown", this.mouseDown);
-
-    // evento de quando o mouse deixa de estar clicado
-    this.container.addEventListener("mouseup", this.mouseUp);
-
-    // evento de clicar com o dedo
-    this.container.addEventListener("touchstart", this.touchStart);
-
-    // evento de quando parar de tocar com o dedo
-    this.container.addEventListener("touchend", this.touchEnd);
-  }
-
-  // ----------- Configurações do Slide ----------------------------- //
 
   // irá pegar a margem é fazer a subtração
   // do elemento em si para que quando houver
@@ -268,11 +250,12 @@ export default class Slide {
     // atualizando a posição a navegação do slide
     // irá continuar sem problemas
     this.move.posicaoFinal = this.slideArray[index].posicao;
+
+    // quando slide for trocado será chamado
+    // método que adiciona a classe ativo
+    // ao slide atual
+    this.ativo();
   }
-
-  // ----------- Fim Configurações do Slide ----------------------------- //
-
-  // ----------- Navegação Próximo e Anterior --------------------------- //
 
   // Verifica se o slide anterior existe
   // e faz a troca do slide para o anterior
@@ -290,7 +273,60 @@ export default class Slide {
     }
   }
 
-  // ----------- Fim Navegação Próximo e Anterior ----------------------- //
+  // -------------- Fim Lógica de movimentação do Slide ----------------- //
+
+  // -------------- Efeitos usados no Slide ----------------------------- //
+
+  // efeito de transição
+  // na troca de slide
+  transition(ativo) {
+    this.slide.style.transition = ativo ? "transform .3s" : "";
+  }
+
+  // adiciona a classe ativo ao item atual
+  // com essa classe será feita uma animação
+  // no slide
+  ativo() {
+    this.slideArray.forEach((item) => {
+      item.element.classList.remove("ativo");
+    });
+
+    this.slideArray[this.index.atual].element.classList.add("ativo");
+  }
+
+  // -------------- Fim Efeitos usados no Slide ------------------------ //
+
+  // alterando referências dos this dos eventos
+  referencias() {
+    this.mouseDown = this.mouseDown.bind(this);
+    this.mouseMove = this.mouseMove.bind(this);
+    this.mouseUp = this.mouseUp.bind(this);
+
+    this.touchStart = this.touchStart.bind(this);
+    this.touchMove = this.touchMove.bind(this);
+    this.touchEnd = this.touchEnd.bind(this);
+
+    // utilizado debounce para que não seja executado
+    // o evento muitas vezes
+    this.resize = debounceScroll(this.resize.bind(this), 200);
+  }
+
+  addEvents() {
+    // evento de click e arrastar do mouse
+    this.container.addEventListener("mousedown", this.mouseDown);
+
+    // evento de quando o mouse deixa de estar clicado
+    this.container.addEventListener("mouseup", this.mouseUp);
+
+    // evento de clicar com o dedo
+    this.container.addEventListener("touchstart", this.touchStart);
+
+    // evento de quando parar de tocar com o dedo
+    this.container.addEventListener("touchend", this.touchEnd);
+
+    // evento de resize
+    window.addEventListener("resize", this.resize);
+  }
 
   // iniciando métodos para funcionamento da classe
   iniciar() {

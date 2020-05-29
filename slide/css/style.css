@@ -19,18 +19,35 @@ img {
   será escondido o conteúdo que está
   estourando o container */
   overflow: hidden;
+
+  cursor: grab;
 }
 
 .slide {
   display: flex;
 }
 
+.slide:hover {
+  /* dizendo que a proprieda tranform irá mudar
+     o desempenho se torna melho com isso */
+  will-change: transform;
+}
+
 .slide li {
   flex: 1 0 60vw; /* definindo shrink como 0 para não encolher e a base como 60% da largura da tela */
   max-width: 600px;
   margin: 0 20px;
+
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  opacity: 0.8;
+  transform: scale(0.8);
+  transition: 0.3s;
 }
 
-.slide li img {
-  cursor: grab;
+.slide li.ativo {
+  opacity: 1;
+  /* tamanho que deverá aparecer 100% */
+  transform: scale(1);
 }
