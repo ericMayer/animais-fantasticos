@@ -24,6 +24,8 @@ import animaisFetch from "./modules/animais-fetch.js";
 
 import bitcoin from "./modules/bitcoin-fetch.js";
 
+import SlideNav from "./modules/slide-nav.js";
+
 // Execução incial das funções
 const eventos = ["click", "touchstart"];
 
@@ -70,3 +72,7 @@ dropdown.iniciar();
 bitcoin("https://blockchain.info/ticker", '[data-bitcoin="doacao"]');
 
 animaisFetch(".quantidade-grid", "../../json/animais-api.json");
+
+const slide = new SlideNav('[data-slide="container"]', '[data-slide="slide"]');
+slide.iniciar();
+slide.addControl('[data-slide="paginacao"]');

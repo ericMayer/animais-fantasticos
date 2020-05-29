@@ -1,6 +1,6 @@
 import Slide from "./slide.js";
 
-export default class Nav extends Slide {
+export default class SlideNav extends Slide {
   // extendendo o constructor da classe pai
   // e adicionado novas funcionalidades no constructor
   constructor(container, slide) {

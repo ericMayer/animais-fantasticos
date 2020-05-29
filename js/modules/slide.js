@@ -1,4 +1,4 @@
-import debounceScroll from "../../js/modules/debounce.js";
+import debounceScroll from "./debounce.js";
 
 export default class Slide {
   constructor(container, slide) {
