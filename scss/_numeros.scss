@@ -15,6 +15,10 @@
   font-family: $fonte-secundaria;
   font-weight: normal;
   margin-bottom: 0.5rem;
+
+  @include d(m) {
+    font-size: 2em;
+  }
 }
 
 .quantidade-animal span {

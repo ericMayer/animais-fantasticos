@@ -182,6 +182,14 @@ body {
   }
 }
 
+/* line 40, ../projetos/animais-fantasticos/scss/_menu.scss */
+.seta-black {
+  background: url("../img/arrow-black.svg") no-repeat center center;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+
 /* Fim menu */
 /* line 1, ../projetos/animais-fantasticos/scss/_animais.scss */
 .animais h2 {
@@ -364,25 +372,32 @@ body {
 }
 
 /* line 22, ../projetos/animais-fantasticos/scss/_faq.scss */
-.js .js-faq-lista dt::after {
+.js .faq-lista dt::after {
   margin-left: 10px;
   /* separando os itens */
   /* adicionando a seta após o conteúdo */
-  content: "⮟";
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: url("../img/arrow-red.svg") no-repeat center center;
+  transform: rotate(90deg);
+  transition: transform 0.3s;
 }
 
-/* line 29, ../projetos/animais-fantasticos/scss/_faq.scss */
+/* line 36, ../projetos/animais-fantasticos/scss/_faq.scss */
 .js [data-anime="faq"] dt {
   cursor: pointer;
 }
 
-/* line 33, ../projetos/animais-fantasticos/scss/_faq.scss */
+/* line 40, ../projetos/animais-fantasticos/scss/_faq.scss */
 .js [data-anime="faq"] dt.ativo::after {
   /* caso tenha a classe ativo */
-  content: "⮝";
+  content: "";
+  transform: rotate(-90deg);
 }
 
-/* line 38, ../projetos/animais-fantasticos/scss/_faq.scss */
+/* line 46, ../projetos/animais-fantasticos/scss/_faq.scss */
 .faq-lista dd {
   margin-left: 40px;
   font-family: Helvetica, arial;
@@ -393,13 +408,13 @@ body {
   max-width: 600px;
 }
 
-/* line 44, ../projetos/animais-fantasticos/scss/_faq.scss */
+/* line 52, ../projetos/animais-fantasticos/scss/_faq.scss */
 .js [data-anime="faq"] dd {
   display: none;
   /* deixando de exibir o conteúdo */
 }
 
-/* line 48, ../projetos/animais-fantasticos/scss/_faq.scss */
+/* line 56, ../projetos/animais-fantasticos/scss/_faq.scss */
 .js [data-anime="faq"] dd.ativo {
   display: block;
   /* caso tenha a classe ativo, volta a exibir o conteúdo */
@@ -554,7 +569,8 @@ body {
   box-shadow: 0 0 0 6px #fff, 0 0 0 8px #fb5;
   position: relative;
   /* para que o x seja posicionado em referência a esse elemento */
-  min-width: 500px;
+  width: 80vw;
+  max-width: 600px;
 }
 
 @keyframes modal {
@@ -568,20 +584,16 @@ body {
   }
 }
 
-/* line 40, ../projetos/animais-fantasticos/scss/_modal.scss */
+/* line 42, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-container.ativo .modal-form {
   animation: modal 0.5s forwards;
   /* forwards é que deve permanecer no estado final a animação */
 }
 
-/* line 44, ../projetos/animais-fantasticos/scss/_modal.scss */
+/* line 46, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-fechar {
   position: absolute;
   /* posição absoluta em relação ao pai, o modal-form */
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 1.2rem;
-  /* 16px */
-  color: #000;
   top: -30px;
   right: -30px;
   width: 50px;
@@ -589,13 +601,13 @@ body {
   border-radius: 50%;
   border: 2px solid #e54;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
-  background-color: #faf6ed;
+  background: #e54 url("../img/fechar.svg") no-repeat center center;
   cursor: pointer;
   outline: none;
   /* tirando azul que fica quando clicado no botão*/
 }
 
-/* line 62, ../projetos/animais-fantasticos/scss/_modal.scss */
+/* line 61, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-form label {
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.125em;
@@ -605,7 +617,7 @@ body {
   margin: 1rem 0 0.5rem 0;
 }
 
-/* line 68, ../projetos/animais-fantasticos/scss/_modal.scss */
+/* line 67, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-form input {
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.125em;
@@ -617,9 +629,12 @@ body {
   margin-top: 0.5rem;
   width: 100%;
   padding: 0.6rem;
+  border-radius: 0;
+  /* em mobile em alguns navegadores, são colocados border-radius */
+  border: 2px solid #222;
 }
 
-/* line 78, ../projetos/animais-fantasticos/scss/_modal.scss */
+/* line 80, ../projetos/animais-fantasticos/scss/_modal.scss */
 .modal-form button[type="submit"] {
   display: block;
   border: none;
@@ -673,6 +688,14 @@ body {
   animation: subindo 0.5s forwards;
 }
 
+@media only screen and (max-width: 700px) {
+  /* line 16, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
+  [data-dropdown="menu"] .dropdown-menu {
+    display: block;
+    animation: subindo 0.5s forwards;
+  }
+}
+
 @keyframes subindo {
   from {
     opacity: 0;
@@ -684,7 +707,7 @@ body {
   }
 }
 
-/* line 26, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
+/* line 33, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
 .dropdown-menu {
   position: absolute;
   z-index: 30;
@@ -694,7 +717,7 @@ body {
   top: 38px;
 }
 
-/* line 34, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
+/* line 41, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
 .dropdown-menu::before {
   content: "";
   display: block;
@@ -707,7 +730,7 @@ body {
   border-bottom: 10px solid #faf6ed;
 }
 
-/* line 49, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
+/* line 56, ../projetos/animais-fantasticos/scss/_dropdown-menu.scss */
 .dropdown-menu li a:hover {
   color: #e54;
 }
@@ -802,7 +825,14 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* line 20, ../projetos/animais-fantasticos/scss/_numeros.scss */
+@media only screen and (max-width: 700px) {
+  /* line 13, ../projetos/animais-fantasticos/scss/_numeros.scss */
+  .quantidade-animal h2 {
+    font-size: 2em;
+  }
+}
+
+/* line 24, ../projetos/animais-fantasticos/scss/_numeros.scss */
 .quantidade-animal span {
   font-family: "IBM Plex Mono", monospace;
   font-weight: bold;
@@ -897,7 +927,15 @@ body {
   transition: 0.3s;
 }
 
-/* line 64, ../projetos/animais-fantasticos/scss/_slide.scss */
+@media only screen and (max-width: 700px) {
+  /* line 47, ../projetos/animais-fantasticos/scss/_slide.scss */
+  .paginacao-personalizada li {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* line 69, ../projetos/animais-fantasticos/scss/_slide.scss */
 .paginacao-personalizada li:hover,
 .paginacao-personalizada li.ativo {
   opacity: 1;
