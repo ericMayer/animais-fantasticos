@@ -23,7 +23,9 @@
   box-shadow: 0 0 0 6px $cor-branca, 0 0 0 8px $cor-menu;
   // uma borda sem sombra para horizontal e vertical, sem blurr, e expandindo em 6px da cor branca
   position: relative; /* para que o x seja posicionado em referência a esse elemento */
-  min-width: 500px;
+
+  width: 80vw;
+  max-width: 600px;
 }
 
 @keyframes modal {
@@ -43,10 +45,7 @@
 
 .modal-fechar {
   position: absolute; /* posição absoluta em relação ao pai, o modal-form */
-  font-family: $fonte-principal;
-  // font-weight: bold;
-  font-size: 1.2rem; /* 16px */
-  color: $cor-preta;
+
   top: -30px;
   right: -30px;
   width: 50px;
@@ -54,7 +53,7 @@
   border-radius: 50%;
   border: 2px solid $cor-animais;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
-  background-color: $cor-fundo;
+  background: $cor-animais url("../img/fechar.svg") no-repeat center center;
   cursor: pointer;
   outline: none; /* tirando azul que fica quando clicado no botão*/
 }
@@ -73,6 +72,9 @@
   margin-top: 0.5rem;
   width: 100%;
   padding: 0.6rem;
+
+  border-radius: 0; /* em mobile em alguns navegadores, são colocados border-radius */
+  border: 2px solid $cor-texto;
 }
 
 .modal-form button[type="submit"] {

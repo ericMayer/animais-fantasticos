@@ -19,11 +19,18 @@
   @include separador-2;
 }
 
-.js .js-faq-lista dt::after {
+.js .faq-lista dt::after {
   margin-left: 10px; /* separando os itens */
 
   /* adicionando a seta após o conteúdo */
-  content: "⮟";
+  content: "";
+
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: url("../img/arrow-red.svg") no-repeat center center;
+  transform: rotate(90deg);
+  transition: transform 0.3s;
 }
 
 .js [data-anime="faq"] dt {
@@ -32,7 +39,8 @@
 
 .js [data-anime="faq"] dt.ativo::after {
   /* caso tenha a classe ativo */
-  content: "⮝";
+  content: "";
+  transform: rotate(-90deg);
 }
 
 .faq-lista dd {

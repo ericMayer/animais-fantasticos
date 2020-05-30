@@ -22,7 +22,18 @@ export default class MenuMobile {
   // depois será usado a função que
   // irá remover a da classe ativo,
   // quando for clicado fora
-  abrirMenu() {
+  abrirMenu(event) {
+    // por padrão no mobile, é tentado
+    // emular o evento de click
+    // então quando é tocado na tela, está
+    // acontecendo dois eventos, o de touchstart e de click
+    // sendo assim o menu abre e fecha, ao prevenir o padrão
+    // no mobile por padrão quando é prevenido o padrão
+    // do touchstart ele impede que ocorra o click
+    // isso em todas é um padrão do touchstart
+    // em todas as plataformas (navegadores)
+    event.preventDefault();
+
     this.menuCelular.classList.toggle("ativo");
     this.menuList.classList.toggle("ativo");
 

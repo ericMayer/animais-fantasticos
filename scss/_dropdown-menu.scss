@@ -12,6 +12,13 @@
   animation: subindo 0.5s forwards;
 }
 
+@include d(m) {
+  [data-dropdown="menu"] .dropdown-menu {
+    display: block; // será exibido quando passar o mouse por cima
+    animation: subindo 0.5s forwards;
+  }
+}
+
 @keyframes subindo {
   from {
     opacity: 0;
