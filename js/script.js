@@ -42,7 +42,7 @@ const animais = new NavListaAnimais(
 );
 animais.iniciar();
 
-const faq = new FaqAccordion('[data-anime="faq"] dt', eventos);
+const faq = new FaqAccordion('[data-anime="faq"] dt');
 faq.iniciar();
 
 const scroll = new ScrollConteudo('[data-anime="conteudo"]');
