@@ -28,7 +28,7 @@ export default class HorarioFuncionamento {
     // caso for retorna true,
     // se não retorna false
     if (
-      this.diasLista.indexOf(this.dia) &&
+      this.diasLista.indexOf(this.dia) || this.diasLista.indexOf(this.dia) === 0 &&
       +horarioAtual >= this.horarioLista[0] &&
       +horarioAtual <= this.horarioLista[1]
     ) {
